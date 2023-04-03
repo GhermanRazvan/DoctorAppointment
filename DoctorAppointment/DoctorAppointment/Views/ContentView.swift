@@ -7,15 +7,26 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+   
     var body: some View {
         VStack {
+            
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
         }
         .padding()
+        .task{DoctorManager.shared.getAllDoctors { result in
+            switch result{
+            case .success(let doctor):
+                print(doctor)
+            case .failure(let err):
+                print(err)
+            }
+        }}
     }
 }
 

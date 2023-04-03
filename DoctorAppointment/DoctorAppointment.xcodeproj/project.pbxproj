@@ -7,102 +7,155 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E553B0C029DB052B00962003 /* DoctorAppointmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553B0BF29DB052B00962003 /* DoctorAppointmentApp.swift */; };
-		E553B0C229DB052B00962003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553B0C129DB052B00962003 /* ContentView.swift */; };
-		E553B0C429DB052C00962003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E553B0C329DB052C00962003 /* Assets.xcassets */; };
-		E553B0C729DB052C00962003 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E553B0C629DB052C00962003 /* Preview Assets.xcassets */; };
+		E590C8BB29DB179E00CC9762 /* DoctorAppointmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8BA29DB179E00CC9762 /* DoctorAppointmentApp.swift */; };
+		E590C8BD29DB179E00CC9762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8BC29DB179E00CC9762 /* ContentView.swift */; };
+		E590C8BF29DB17A000CC9762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E590C8BE29DB17A000CC9762 /* Assets.xcassets */; };
+		E590C8C229DB17A000CC9762 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E590C8C129DB17A000CC9762 /* Preview Assets.xcassets */; };
+		E590C8C929DB17AC00CC9762 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E590C8C829DB17AC00CC9762 /* GoogleService-Info.plist */; };
+		E590C8CC29DB17DB00CC9762 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E590C8CB29DB17DB00CC9762 /* FirebaseAnalytics */; };
+		E590C8CE29DB17DB00CC9762 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E590C8CD29DB17DB00CC9762 /* FirebaseAnalyticsSwift */; };
+		E590C8D029DB17DB00CC9762 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E590C8CF29DB17DB00CC9762 /* FirebaseAuth */; };
+		E590C8D229DB17DB00CC9762 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E590C8D129DB17DB00CC9762 /* FirebaseFirestore */; };
+		E590C8D429DB17DB00CC9762 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E590C8D329DB17DB00CC9762 /* FirebaseFirestoreSwift */; };
+		E590C8D629DB17DB00CC9762 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E590C8D529DB17DB00CC9762 /* FirebaseStorage */; };
+		E590C8D829DB1CBF00CC9762 /* DoctorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8D729DB1CBE00CC9762 /* DoctorManager.swift */; };
+		E590C8DD29DB23A600CC9762 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8DC29DB23A600CC9762 /* Doctor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E553B0BC29DB052B00962003 /* DoctorAppointment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorAppointment.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E553B0BF29DB052B00962003 /* DoctorAppointmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorAppointmentApp.swift; sourceTree = "<group>"; };
-		E553B0C129DB052B00962003 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E553B0C329DB052C00962003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E553B0C629DB052C00962003 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E590C8B729DB179E00CC9762 /* DoctorAppointment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorAppointment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E590C8BA29DB179E00CC9762 /* DoctorAppointmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorAppointmentApp.swift; sourceTree = "<group>"; };
+		E590C8BC29DB179E00CC9762 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E590C8BE29DB17A000CC9762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E590C8C129DB17A000CC9762 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E590C8C829DB17AC00CC9762 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E590C8D729DB1CBE00CC9762 /* DoctorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorManager.swift; sourceTree = "<group>"; };
+		E590C8DC29DB23A600CC9762 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E553B0B929DB052B00962003 /* Frameworks */ = {
+		E590C8B429DB179E00CC9762 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E590C8D429DB17DB00CC9762 /* FirebaseFirestoreSwift in Frameworks */,
+				E590C8CE29DB17DB00CC9762 /* FirebaseAnalyticsSwift in Frameworks */,
+				E590C8D229DB17DB00CC9762 /* FirebaseFirestore in Frameworks */,
+				E590C8D029DB17DB00CC9762 /* FirebaseAuth in Frameworks */,
+				E590C8CC29DB17DB00CC9762 /* FirebaseAnalytics in Frameworks */,
+				E590C8D629DB17DB00CC9762 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E553B0B329DB052B00962003 = {
+		E590C8AE29DB179E00CC9762 = {
 			isa = PBXGroup;
 			children = (
-				E553B0BE29DB052B00962003 /* DoctorAppointment */,
-				E553B0BD29DB052B00962003 /* Products */,
+				E590C8B929DB179E00CC9762 /* DoctorAppointment */,
+				E590C8B829DB179E00CC9762 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E553B0BD29DB052B00962003 /* Products */ = {
+		E590C8B829DB179E00CC9762 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E553B0BC29DB052B00962003 /* DoctorAppointment.app */,
+				E590C8B729DB179E00CC9762 /* DoctorAppointment.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E553B0BE29DB052B00962003 /* DoctorAppointment */ = {
+		E590C8B929DB179E00CC9762 /* DoctorAppointment */ = {
 			isa = PBXGroup;
 			children = (
-				E553B0BF29DB052B00962003 /* DoctorAppointmentApp.swift */,
-				E553B0C129DB052B00962003 /* ContentView.swift */,
-				E553B0C329DB052C00962003 /* Assets.xcassets */,
-				E553B0C529DB052C00962003 /* Preview Content */,
+				E590C8DB29DB237300CC9762 /* Views */,
+				E590C8DA29DB236400CC9762 /* DatabaseManager */,
+				E590C8D929DB235300CC9762 /* Models */,
+				E590C8BA29DB179E00CC9762 /* DoctorAppointmentApp.swift */,
+				E590C8BE29DB17A000CC9762 /* Assets.xcassets */,
+				E590C8C829DB17AC00CC9762 /* GoogleService-Info.plist */,
+				E590C8C029DB17A000CC9762 /* Preview Content */,
 			);
 			path = DoctorAppointment;
 			sourceTree = "<group>";
 		};
-		E553B0C529DB052C00962003 /* Preview Content */ = {
+		E590C8C029DB17A000CC9762 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				E553B0C629DB052C00962003 /* Preview Assets.xcassets */,
+				E590C8C129DB17A000CC9762 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E590C8D929DB235300CC9762 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E590C8DC29DB23A600CC9762 /* Doctor.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E590C8DA29DB236400CC9762 /* DatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				E590C8D729DB1CBE00CC9762 /* DoctorManager.swift */,
+			);
+			path = DatabaseManager;
+			sourceTree = "<group>";
+		};
+		E590C8DB29DB237300CC9762 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E590C8BC29DB179E00CC9762 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E553B0BB29DB052B00962003 /* DoctorAppointment */ = {
+		E590C8B629DB179E00CC9762 /* DoctorAppointment */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E553B0CA29DB052C00962003 /* Build configuration list for PBXNativeTarget "DoctorAppointment" */;
+			buildConfigurationList = E590C8C529DB17A000CC9762 /* Build configuration list for PBXNativeTarget "DoctorAppointment" */;
 			buildPhases = (
-				E553B0B829DB052B00962003 /* Sources */,
-				E553B0B929DB052B00962003 /* Frameworks */,
-				E553B0BA29DB052B00962003 /* Resources */,
+				E590C8B329DB179E00CC9762 /* Sources */,
+				E590C8B429DB179E00CC9762 /* Frameworks */,
+				E590C8B529DB179E00CC9762 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DoctorAppointment;
+			packageProductDependencies = (
+				E590C8CB29DB17DB00CC9762 /* FirebaseAnalytics */,
+				E590C8CD29DB17DB00CC9762 /* FirebaseAnalyticsSwift */,
+				E590C8CF29DB17DB00CC9762 /* FirebaseAuth */,
+				E590C8D129DB17DB00CC9762 /* FirebaseFirestore */,
+				E590C8D329DB17DB00CC9762 /* FirebaseFirestoreSwift */,
+				E590C8D529DB17DB00CC9762 /* FirebaseStorage */,
+			);
 			productName = DoctorAppointment;
-			productReference = E553B0BC29DB052B00962003 /* DoctorAppointment.app */;
+			productReference = E590C8B729DB179E00CC9762 /* DoctorAppointment.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E553B0B429DB052B00962003 /* Project object */ = {
+		E590C8AF29DB179E00CC9762 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					E553B0BB29DB052B00962003 = {
+					E590C8B629DB179E00CC9762 = {
 						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
-			buildConfigurationList = E553B0B729DB052B00962003 /* Build configuration list for PBXProject "DoctorAppointment" */;
+			buildConfigurationList = E590C8B229DB179E00CC9762 /* Build configuration list for PBXProject "DoctorAppointment" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +163,48 @@
 				en,
 				Base,
 			);
-			mainGroup = E553B0B329DB052B00962003;
-			productRefGroup = E553B0BD29DB052B00962003 /* Products */;
+			mainGroup = E590C8AE29DB179E00CC9762;
+			packageReferences = (
+				E590C8CA29DB17DB00CC9762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = E590C8B829DB179E00CC9762 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E553B0BB29DB052B00962003 /* DoctorAppointment */,
+				E590C8B629DB179E00CC9762 /* DoctorAppointment */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E553B0BA29DB052B00962003 /* Resources */ = {
+		E590C8B529DB179E00CC9762 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E553B0C729DB052C00962003 /* Preview Assets.xcassets in Resources */,
-				E553B0C429DB052C00962003 /* Assets.xcassets in Resources */,
+				E590C8C229DB17A000CC9762 /* Preview Assets.xcassets in Resources */,
+				E590C8BF29DB17A000CC9762 /* Assets.xcassets in Resources */,
+				E590C8C929DB17AC00CC9762 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E553B0B829DB052B00962003 /* Sources */ = {
+		E590C8B329DB179E00CC9762 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E553B0C229DB052B00962003 /* ContentView.swift in Sources */,
-				E553B0C029DB052B00962003 /* DoctorAppointmentApp.swift in Sources */,
+				E590C8BD29DB179E00CC9762 /* ContentView.swift in Sources */,
+				E590C8D829DB1CBF00CC9762 /* DoctorManager.swift in Sources */,
+				E590C8DD29DB23A600CC9762 /* Doctor.swift in Sources */,
+				E590C8BB29DB179E00CC9762 /* DoctorAppointmentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		E553B0C829DB052C00962003 /* Debug */ = {
+		E590C8C329DB17A000CC9762 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -205,7 +264,7 @@
 			};
 			name = Debug;
 		};
-		E553B0C929DB052C00962003 /* Release */ = {
+		E590C8C429DB17A000CC9762 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -259,7 +318,7 @@
 			};
 			name = Release;
 		};
-		E553B0CB29DB052C00962003 /* Debug */ = {
+		E590C8C629DB17A000CC9762 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -288,7 +347,7 @@
 			};
 			name = Debug;
 		};
-		E553B0CC29DB052C00962003 /* Release */ = {
+		E590C8C729DB17A000CC9762 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -320,25 +379,69 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E553B0B729DB052B00962003 /* Build configuration list for PBXProject "DoctorAppointment" */ = {
+		E590C8B229DB179E00CC9762 /* Build configuration list for PBXProject "DoctorAppointment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E553B0C829DB052C00962003 /* Debug */,
-				E553B0C929DB052C00962003 /* Release */,
+				E590C8C329DB17A000CC9762 /* Debug */,
+				E590C8C429DB17A000CC9762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E553B0CA29DB052C00962003 /* Build configuration list for PBXNativeTarget "DoctorAppointment" */ = {
+		E590C8C529DB17A000CC9762 /* Build configuration list for PBXNativeTarget "DoctorAppointment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E553B0CB29DB052C00962003 /* Debug */,
-				E553B0CC29DB052C00962003 /* Release */,
+				E590C8C629DB17A000CC9762 /* Debug */,
+				E590C8C729DB17A000CC9762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E590C8CA29DB17DB00CC9762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E590C8CB29DB17DB00CC9762 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E590C8CA29DB17DB00CC9762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		E590C8CD29DB17DB00CC9762 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E590C8CA29DB17DB00CC9762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		E590C8CF29DB17DB00CC9762 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E590C8CA29DB17DB00CC9762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E590C8D129DB17DB00CC9762 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E590C8CA29DB17DB00CC9762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		E590C8D329DB17DB00CC9762 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E590C8CA29DB17DB00CC9762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		E590C8D529DB17DB00CC9762 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E590C8CA29DB17DB00CC9762 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = E553B0B429DB052B00962003 /* Project object */;
+	rootObject = E590C8AF29DB179E00CC9762 /* Project object */;
 }
