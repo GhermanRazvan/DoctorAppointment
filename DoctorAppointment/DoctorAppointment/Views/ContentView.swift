@@ -6,27 +6,45 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 
 struct ContentView: View {
    
+    @AppStorage("uid") var userID: String = ""
+    
     var body: some View {
-        VStack {
+        
+        if userID == "" { 
+            AuthView()
+        }else {
+            Text("Logged In! \nYour user id is \(userID)")
             
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-        .task{DoctorManager.shared.getAllDoctors { result in
-            switch result{
-            case .success(let doctor):
-                print(doctor)
-            case .failure(let err):
-                print(err)
+            Button(action: {
+                let firebaseAuth = Auth.auth()
+                do {
+                  try firebaseAuth.signOut()
+                    withAnimation{
+                        userID =  ""    
+                    }
+                    
+                } catch let signOutError as NSError {
+                  print("Error signing out: %@", signOutError)
+                }
+            }){
+                Text("Sign out")
             }
-        }}
+        }
+        
+        
+//        .padding()
+//        .task{DoctorManager.shared.getAllDoctors { result in
+//            switch result{
+//            case .success(let doctor):
+//                print(doctor)
+//            case .failure(let err):
+//                print(err)
+//            }
+//        }}
     }
 }
 

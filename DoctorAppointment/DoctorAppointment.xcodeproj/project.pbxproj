@@ -20,6 +20,10 @@
 		E590C8D629DB17DB00CC9762 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E590C8D529DB17DB00CC9762 /* FirebaseStorage */; };
 		E590C8D829DB1CBF00CC9762 /* DoctorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8D729DB1CBE00CC9762 /* DoctorManager.swift */; };
 		E590C8DD29DB23A600CC9762 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8DC29DB23A600CC9762 /* Doctor.swift */; };
+		E590C8DF29DDC94100CC9762 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8DE29DDC94100CC9762 /* LoginView.swift */; };
+		E590C8E229DDD10F00CC9762 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8E129DDD10F00CC9762 /* String.swift */; };
+		E590C8E429DDD43800CC9762 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8E329DDD43800CC9762 /* SignUpView.swift */; };
+		E590C8E629DDD55200CC9762 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8E529DDD55200CC9762 /* AuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		E590C8C829DB17AC00CC9762 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E590C8D729DB1CBE00CC9762 /* DoctorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorManager.swift; sourceTree = "<group>"; };
 		E590C8DC29DB23A600CC9762 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		E590C8DE29DDC94100CC9762 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E590C8E129DDD10F00CC9762 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		E590C8E329DDD43800CC9762 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E590C8E529DDD55200CC9762 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,7 @@
 		E590C8B929DB179E00CC9762 /* DoctorAppointment */ = {
 			isa = PBXGroup;
 			children = (
+				E590C8E029DDD0FE00CC9762 /* Extensions */,
 				E590C8DB29DB237300CC9762 /* Views */,
 				E590C8DA29DB236400CC9762 /* DatabaseManager */,
 				E590C8D929DB235300CC9762 /* Models */,
@@ -108,8 +117,19 @@
 			isa = PBXGroup;
 			children = (
 				E590C8BC29DB179E00CC9762 /* ContentView.swift */,
+				E590C8DE29DDC94100CC9762 /* LoginView.swift */,
+				E590C8E329DDD43800CC9762 /* SignUpView.swift */,
+				E590C8E529DDD55200CC9762 /* AuthView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E590C8E029DDD0FE00CC9762 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E590C8E129DDD10F00CC9762 /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +214,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E590C8E229DDD10F00CC9762 /* String.swift in Sources */,
 				E590C8BD29DB179E00CC9762 /* ContentView.swift in Sources */,
 				E590C8D829DB1CBF00CC9762 /* DoctorManager.swift in Sources */,
+				E590C8E429DDD43800CC9762 /* SignUpView.swift in Sources */,
 				E590C8DD29DB23A600CC9762 /* Doctor.swift in Sources */,
+				E590C8DF29DDC94100CC9762 /* LoginView.swift in Sources */,
+				E590C8E629DDD55200CC9762 /* AuthView.swift in Sources */,
 				E590C8BB29DB179E00CC9762 /* DoctorAppointmentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
