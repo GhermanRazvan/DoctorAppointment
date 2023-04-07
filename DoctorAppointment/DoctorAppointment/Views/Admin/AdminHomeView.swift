@@ -1,0 +1,20 @@
+//
+//  AdminHomeView.swift
+//  DoctorAppointment
+//
+//  Created by Razvan Gherman on 07.04.2023.
+//
+
+import SwiftUI
+
+struct AdminHomeView: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct AdminHomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        AdminHomeView()
+    }
+}

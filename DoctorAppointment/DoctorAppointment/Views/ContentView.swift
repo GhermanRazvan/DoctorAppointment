@@ -8,43 +8,51 @@
 import SwiftUI
 import FirebaseAuth
 
+
 struct ContentView: View {
-   
+    
     @AppStorage("uid") var userID: String = ""
+    @AppStorage("email") var userEmail: String = ""
+    @State var roleApp: String = ""
     
     var body: some View {
         
-        if userID == "" { 
+        if userID == "" {
             AuthView()
         }else {
-            Text("Logged In! \nYour user id is \(userID)")
-            
-            Button(action: {
-                let firebaseAuth = Auth.auth()
-                do {
-                  try firebaseAuth.signOut()
-                    withAnimation{
-                        userID =  ""    
-                    }
-                    
-                } catch let signOutError as NSError {
-                  print("Error signing out: %@", signOutError)
+            NavigationStack{
+                if roleApp == "pacient"{
+                    PacientHomeView()
+                }else if roleApp == "doctor"{
+                    DoctorHomeView()
+                }else if roleApp == "admin"{
+                    AdminHomeView()
                 }
-            }){
-                Text("Sign out")
-            }
-        }
-        
-        
-//        .padding()
-//        .task{DoctorManager.shared.getAllDoctors { result in
-//            switch result{
-//            case .success(let doctor):
-//                print(doctor)
-//            case .failure(let err):
-//                print(err)
+            }.onAppear{UserRoleManager.shared.getUserRoleForEmail(email: userEmail) { role in
+                if let role = role{
+                    roleApp = role
+                }
+            }}
+            
+                
+//            Text("Logged In! \nYour user id is \(userID)")
+//
+//            Button(action: {
+//                let firebaseAuth = Auth.auth()
+//                do {
+//                    try firebaseAuth.signOut()
+//                    withAnimation{
+//                        userID =  ""
+//                    }
+//
+//                } catch let signOutError as NSError {
+//                    print("Error signing out: %@", signOutError)
+//
+//                }
+//            }){
+//                Text("Sign out")
 //            }
-//        }}
+        }
     }
 }
 

@@ -24,6 +24,12 @@
 		E590C8E229DDD10F00CC9762 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8E129DDD10F00CC9762 /* String.swift */; };
 		E590C8E429DDD43800CC9762 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8E329DDD43800CC9762 /* SignUpView.swift */; };
 		E590C8E629DDD55200CC9762 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8E529DDD55200CC9762 /* AuthView.swift */; };
+		E590C8E829E02B6F00CC9762 /* PacientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8E729E02B6F00CC9762 /* PacientManager.swift */; };
+		E590C8EA29E02B9600CC9762 /* Pacient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8E929E02B9600CC9762 /* Pacient.swift */; };
+		E590C8F029E033BF00CC9762 /* PacientHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8EF29E033BF00CC9762 /* PacientHomeView.swift */; };
+		E590C8F229E0353600CC9762 /* UserRoleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8F129E0353600CC9762 /* UserRoleManager.swift */; };
+		E590C8F429E03C0500CC9762 /* DoctorHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8F329E03C0500CC9762 /* DoctorHomeView.swift */; };
+		E590C8F629E03C1500CC9762 /* AdminHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C8F529E03C1500CC9762 /* AdminHomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +45,12 @@
 		E590C8E129DDD10F00CC9762 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		E590C8E329DDD43800CC9762 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E590C8E529DDD55200CC9762 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		E590C8E729E02B6F00CC9762 /* PacientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientManager.swift; sourceTree = "<group>"; };
+		E590C8E929E02B9600CC9762 /* Pacient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pacient.swift; sourceTree = "<group>"; };
+		E590C8EF29E033BF00CC9762 /* PacientHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientHomeView.swift; sourceTree = "<group>"; };
+		E590C8F129E0353600CC9762 /* UserRoleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleManager.swift; sourceTree = "<group>"; };
+		E590C8F329E03C0500CC9762 /* DoctorHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorHomeView.swift; sourceTree = "<group>"; };
+		E590C8F529E03C1500CC9762 /* AdminHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				E590C8DC29DB23A600CC9762 /* Doctor.swift */,
+				E590C8E929E02B9600CC9762 /* Pacient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				E590C8D729DB1CBE00CC9762 /* DoctorManager.swift */,
+				E590C8E729E02B6F00CC9762 /* PacientManager.swift */,
+				E590C8F129E0353600CC9762 /* UserRoleManager.swift */,
 			);
 			path = DatabaseManager;
 			sourceTree = "<group>";
@@ -116,10 +131,11 @@
 		E590C8DB29DB237300CC9762 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E590C8EE29E0339D00CC9762 /* Admin */,
+				E590C8ED29E0339700CC9762 /* Pacient */,
+				E590C8EC29E0338D00CC9762 /* Doctor */,
+				E590C8EB29E0337300CC9762 /* Authentification */,
 				E590C8BC29DB179E00CC9762 /* ContentView.swift */,
-				E590C8DE29DDC94100CC9762 /* LoginView.swift */,
-				E590C8E329DDD43800CC9762 /* SignUpView.swift */,
-				E590C8E529DDD55200CC9762 /* AuthView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +146,40 @@
 				E590C8E129DDD10F00CC9762 /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E590C8EB29E0337300CC9762 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				E590C8E529DDD55200CC9762 /* AuthView.swift */,
+				E590C8DE29DDC94100CC9762 /* LoginView.swift */,
+				E590C8E329DDD43800CC9762 /* SignUpView.swift */,
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
+		E590C8EC29E0338D00CC9762 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				E590C8F329E03C0500CC9762 /* DoctorHomeView.swift */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		E590C8ED29E0339700CC9762 /* Pacient */ = {
+			isa = PBXGroup;
+			children = (
+				E590C8EF29E033BF00CC9762 /* PacientHomeView.swift */,
+			);
+			path = Pacient;
+			sourceTree = "<group>";
+		};
+		E590C8EE29E0339D00CC9762 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				E590C8F529E03C1500CC9762 /* AdminHomeView.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,13 +264,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E590C8EA29E02B9600CC9762 /* Pacient.swift in Sources */,
+				E590C8E829E02B6F00CC9762 /* PacientManager.swift in Sources */,
 				E590C8E229DDD10F00CC9762 /* String.swift in Sources */,
 				E590C8BD29DB179E00CC9762 /* ContentView.swift in Sources */,
 				E590C8D829DB1CBF00CC9762 /* DoctorManager.swift in Sources */,
+				E590C8F629E03C1500CC9762 /* AdminHomeView.swift in Sources */,
 				E590C8E429DDD43800CC9762 /* SignUpView.swift in Sources */,
+				E590C8F429E03C0500CC9762 /* DoctorHomeView.swift in Sources */,
 				E590C8DD29DB23A600CC9762 /* Doctor.swift in Sources */,
 				E590C8DF29DDC94100CC9762 /* LoginView.swift in Sources */,
+				E590C8F229E0353600CC9762 /* UserRoleManager.swift in Sources */,
 				E590C8E629DDD55200CC9762 /* AuthView.swift in Sources */,
+				E590C8F029E033BF00CC9762 /* PacientHomeView.swift in Sources */,
 				E590C8BB29DB179E00CC9762 /* DoctorAppointmentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

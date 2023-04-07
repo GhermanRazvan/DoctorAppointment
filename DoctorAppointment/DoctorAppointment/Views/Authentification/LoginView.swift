@@ -1,5 +1,5 @@
 //
-//  SignUpView.swift
+//  LoginView.swift
 //  DoctorAppointment
 //
 //  Created by Razvan Gherman on 05.04.2023.
@@ -8,16 +8,18 @@
 import SwiftUI
 import FirebaseAuth
 
-struct SignUpView: View {
+struct LoginView: View {
     
-    @Binding var currentShowingView: String
+    @Binding var currentShowingView :String 
     @AppStorage("uid") var userID: String = ""
+    @AppStorage("email") var userEmail: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     
+    
     private func isValidPassword(_ password: String) -> Bool{
         //minimum 6 char long
-        //1 uppercase character\
+        //1 uppercase character
         //1 special cahr
         
         let passwordRegex = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])(?=.*[A-Z]).{6,}$")
@@ -29,12 +31,11 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack{
-            Color.black.edgesIgnoringSafeArea(.all)
+            Color.white.edgesIgnoringSafeArea(.all)
             
             VStack{
                 HStack{
-                    Text("Create an Account!")
-                        .foregroundColor(.white)
+                    Text("Welcome Back!")
                         .font(.largeTitle)
                         .bold()
                     
@@ -50,6 +51,7 @@ struct SignUpView: View {
                     
                     Image(systemName: "mail")
                     TextField("Email",text: $email)
+                        .autocapitalization(.none)
                     
                     Spacer()
                     
@@ -66,12 +68,11 @@ struct SignUpView: View {
                     
                     
                 }
-                .foregroundColor(.white)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius:10)
                         .stroke(lineWidth: 2)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 )
                 
                 .padding()
@@ -92,12 +93,11 @@ struct SignUpView: View {
                     
                     
                 }
-                .foregroundColor(.white)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius:10)
                         .stroke(lineWidth: 2)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 )
                 
                 
@@ -106,13 +106,14 @@ struct SignUpView: View {
                 
                 Button(action: {
                     
-                    withAnimation{
-                        self.currentShowingView = "login"
+                    withAnimation() {
+                        self.currentShowingView = "signup"
                         
                     }
+                    
                 }){
-                    Text("Already have an account?")
-                        .foregroundColor(.gray)
+                    Text("Don't have an account?")
+                        .foregroundColor(.black.opacity(0.7))
                 }
                 
                 Spacer()
@@ -120,33 +121,37 @@ struct SignUpView: View {
                 
                 Button{
                     
-                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                       
+                    Auth.auth().signIn(withEmail: email, password: password) {  authResult, error in
                         if let error = error {
-                            print(error)
+                            print (error)
                             return
                         }
-                        
-                        
-                        if let authResult = authResult {
+                        if let authResult = authResult{
                             print(authResult.user.uid)
-                            userID = authResult.user.uid
-                            
+                            withAnimation{
+                                userID = authResult.user.uid
+                                userEmail = authResult.user.email!
+                               
+                                
+                                
+                            }
                             
                         }
+                        
+                       
+                      // ...
                     }
                     
-                    
                 }label:{
-                    Text("Create new Account")
-                        .foregroundColor(.black)
+                    Text("Sign in")
+                        .foregroundColor(.white)
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.white)
+                                .fill(Color.black)
                         )
                         .padding(.horizontal)
                 }
@@ -156,5 +161,8 @@ struct SignUpView: View {
         }
     }
 }
+
+
+
 
 
