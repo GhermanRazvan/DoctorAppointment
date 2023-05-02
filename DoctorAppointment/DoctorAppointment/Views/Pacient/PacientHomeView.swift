@@ -12,22 +12,41 @@ struct PacientHomeView: View {
     @AppStorage("uid") var userID: String = ""
     @AppStorage("email") var userEmail: String = ""
     var body: some View {
-        Button(action: {
-            let firebaseAuth = Auth.auth()
-            do {
-                try firebaseAuth.signOut()
-                withAnimation{
-                    userID =  ""
-                    userEmail = ""
+        
+        TabView{
+            PacientClinicView()
+                .tabItem{
+                    Image(systemName: "house")
+                    Text("Home")
                 }
-                
-            } catch let signOutError as NSError {
-                print("Error signing out: %@", signOutError)
-                
-            }
-        }){
-            Text("Sign out User")
+            PacientAppointmentView()
+                .tabItem{
+                    Image(systemName: "calendar.badge.clock")
+                    Text("Appointments")
+                }
+            PacientSettingsView()
+                .tabItem{
+                    Image(systemName: "person")
+                    Text("User")
+                }
         }
+        
+//        Button(action: {
+//            let firebaseAuth = Auth.auth()
+//            do {
+//                try firebaseAuth.signOut()
+//                withAnimation{
+//                    userID =  ""
+//                    userEmail = ""
+//                }
+//
+//            } catch let signOutError as NSError {
+//                print("Error signing out: %@", signOutError)
+//
+//            }
+//        }){
+//            Text("Sign out User")
+//        }
     }
 }
 

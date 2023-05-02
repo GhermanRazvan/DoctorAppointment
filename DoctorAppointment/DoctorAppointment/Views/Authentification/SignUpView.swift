@@ -59,6 +59,7 @@ struct SignUpView: View {
                         
                         Image(systemName: "First Name")
                         TextField("First Name",text: $firstName)
+                            .autocapitalization(.none)
                         
                         Spacer()
                         
@@ -89,6 +90,7 @@ struct SignUpView: View {
                         
                         Image(systemName: "Middle Name")
                         TextField("Middle Name",text: $middleName)
+                            .autocapitalization(.none)
                         
                         Spacer()
                         
@@ -120,6 +122,7 @@ struct SignUpView: View {
                         
                         Image(systemName: "Last Name")
                         TextField("Last Name",text: $lastName)
+                            .autocapitalization(.none)
                         
                         Spacer()
                         
@@ -152,6 +155,7 @@ struct SignUpView: View {
                     
                     Image(systemName: "Phone Number")
                     TextField("Phone Number",text: $phoneNumber)
+                        .autocapitalization(.none)
                     
                     Spacer()
                     
@@ -184,6 +188,7 @@ struct SignUpView: View {
                     
                     Image(systemName: "mail")
                     TextField("Email",text: $email)
+                        .autocapitalization(.none)
                     
                     Spacer()
                     
@@ -213,6 +218,7 @@ struct SignUpView: View {
                 HStack{
                     Image(systemName: "lock")
                     SecureField("Password",text: $password)
+                        .autocapitalization(.none)
                     
                     Spacer()
                     

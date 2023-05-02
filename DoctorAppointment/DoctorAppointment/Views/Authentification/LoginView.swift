@@ -80,6 +80,7 @@ struct LoginView: View {
                 HStack{
                     Image(systemName: "lock")
                     SecureField("Password",text: $password)
+                        .autocapitalization(.none)
                     
                     Spacer()
                     
