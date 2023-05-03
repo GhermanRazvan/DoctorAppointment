@@ -49,6 +49,35 @@ class DoctorManager {
         
     }
     
+    func getDoctorsForClinic(clinicID: String, completion: @escaping ([Doctor]?) -> ()){
+        var doctors: [Doctor] = []
+        db.collection("Doctor").whereField("clinic_id", isEqualTo: clinicID).getDocuments { snapshot, err in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(nil)
+            }
+            else {
+                for document in snapshot!.documents{
+                    
+                    let result = Result{
+                        try document.data(as: Doctor.self)
+                        
+                    }
+                    switch result{
+                    case .success(let item):
+                        doctors.append(item)
+                    case .failure(let err):
+                        print("Couldn't parse doctor \(err.localizedDescription)")
+                    }
+                    
+                }
+                completion(doctors)
+                
+            }
+            
+        }
+    }
+    
     
     
 }

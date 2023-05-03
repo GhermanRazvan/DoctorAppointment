@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
+import FirebaseFirestore
 
-public struct Doctor: Codable {
+public struct Doctor: Codable, Identifiable {
+    @DocumentID public var id: String? = UUID().uuidString
     let firstName: String
     let middleName: String?
     let lastName: String
@@ -19,6 +22,7 @@ public struct Doctor: Codable {
     
     
     enum CodingKeys: String, CodingKey{
+        case id = "documentID"
         case firstName = "first_name"
         case middleName = "middle_name"
         case lastName = "last_name"

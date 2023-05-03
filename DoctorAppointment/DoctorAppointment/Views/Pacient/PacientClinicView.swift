@@ -15,26 +15,32 @@ import Contacts
 struct PacientClinicView: View {
     @State var clinics: [Clinic] = []
     var body: some View {
-        NavigationView{
+        NavigationStack{
             
             List($clinics){ $clinic in
+                NavigationLink{
+                    DoctorListView(clinicID: clinic.id!)
+                }label:{
+                    
                 
-                VStack{
-                    Text("\(clinic.name)")
-                    Text("\(clinic.address)")
-                        .onAppear {
-                            let locationUtil = LocationUtil()
-                            locationUtil.geoCodeLocation(lat: clinic.location.latitude, long: clinic.location.longitude){
-                                location in
-                                if let location  = location {
-                                    
-                                    clinic.address = "\(location.street)"
-                                    
-                                    
+                    VStack(alignment: .leading){
+                        Text("\(clinic.name)")
+                        
+                        Text("\(clinic.address)")
+                            .onAppear {
+                                let locationUtil = LocationUtil()
+                                locationUtil.geoCodeLocation(lat: clinic.location.latitude, long: clinic.location.longitude){
+                                    location in
+                                    if let location  = location {
+                                        
+                                        clinic.address = "\(location.street)"
+                                        
+                                        
+                                    }
                                 }
                             }
-                        }
-                   
+                        
+                    }
                 }
                 
                 

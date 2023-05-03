@@ -38,6 +38,12 @@
 		E590C9022A01329D00CC9762 /* PacientSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9012A01329D00CC9762 /* PacientSettingsView.swift */; };
 		E590C9042A013D2A00CC9762 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9032A013D2A00CC9762 /* Location.swift */; };
 		E590C9072A01412A00CC9762 /* LocationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9062A01412A00CC9762 /* LocationUtil.swift */; };
+		E590C90B2A02A69E00CC9762 /* DoctorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C90A2A02A69E00CC9762 /* DoctorListView.swift */; };
+		E590C90D2A02AC6200CC9762 /* DoctorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C90C2A02AC6200CC9762 /* DoctorView.swift */; };
+		E590C90F2A02AE7600CC9762 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C90E2A02AE7600CC9762 /* Review.swift */; };
+		E590C9112A02AFFE00CC9762 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9102A02AFFE00CC9762 /* ReviewManager.swift */; };
+		E590C91B2A02BC4A00CC9762 /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C91A2A02BC4A00CC9762 /* AddReviewView.swift */; };
+		E590C91E2A02BEE200CC9762 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C91D2A02BEE200CC9762 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +73,12 @@
 		E590C9012A01329D00CC9762 /* PacientSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientSettingsView.swift; sourceTree = "<group>"; };
 		E590C9032A013D2A00CC9762 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E590C9062A01412A00CC9762 /* LocationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtil.swift; sourceTree = "<group>"; };
+		E590C90A2A02A69E00CC9762 /* DoctorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListView.swift; sourceTree = "<group>"; };
+		E590C90C2A02AC6200CC9762 /* DoctorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorView.swift; sourceTree = "<group>"; };
+		E590C90E2A02AE7600CC9762 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		E590C9102A02AFFE00CC9762 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
+		E590C91A2A02BC4A00CC9762 /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
+		E590C91D2A02BEE200CC9762 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +145,7 @@
 				E590C8F72A01103200CC9762 /* Admin.swift */,
 				E590C8F92A01295000CC9762 /* Clinic.swift */,
 				E590C9032A013D2A00CC9762 /* Location.swift */,
+				E590C90E2A02AE7600CC9762 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +157,7 @@
 				E590C8E729E02B6F00CC9762 /* PacientManager.swift */,
 				E590C8F129E0353600CC9762 /* UserRoleManager.swift */,
 				E590C8FB2A012B5100CC9762 /* ClinicManager.swift */,
+				E590C9102A02AFFE00CC9762 /* ReviewManager.swift */,
 			);
 			path = DatabaseManager;
 			sourceTree = "<group>";
@@ -190,10 +204,12 @@
 		E590C8ED29E0339700CC9762 /* Pacient */ = {
 			isa = PBXGroup;
 			children = (
+				E590C91C2A02BEBE00CC9762 /* Components */,
 				E590C8EF29E033BF00CC9762 /* PacientHomeView.swift */,
 				E590C8FD2A01322100CC9762 /* PacientClinicView.swift */,
 				E590C8FF2A01328C00CC9762 /* PacientAppointmentView.swift */,
 				E590C9012A01329D00CC9762 /* PacientSettingsView.swift */,
+				E590C90A2A02A69E00CC9762 /* DoctorListView.swift */,
 			);
 			path = Pacient;
 			sourceTree = "<group>";
@@ -212,6 +228,16 @@
 				E590C9062A01412A00CC9762 /* LocationUtil.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E590C91C2A02BEBE00CC9762 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E590C90C2A02AC6200CC9762 /* DoctorView.swift */,
+				E590C91A2A02BC4A00CC9762 /* AddReviewView.swift */,
+				E590C91D2A02BEE200CC9762 /* RatingView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,13 +323,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E590C8EA29E02B9600CC9762 /* Pacient.swift in Sources */,
+				E590C90F2A02AE7600CC9762 /* Review.swift in Sources */,
 				E590C8E829E02B6F00CC9762 /* PacientManager.swift in Sources */,
 				E590C9072A01412A00CC9762 /* LocationUtil.swift in Sources */,
+				E590C91B2A02BC4A00CC9762 /* AddReviewView.swift in Sources */,
 				E590C8E229DDD10F00CC9762 /* String.swift in Sources */,
 				E590C8BD29DB179E00CC9762 /* ContentView.swift in Sources */,
 				E590C9022A01329D00CC9762 /* PacientSettingsView.swift in Sources */,
 				E590C8D829DB1CBF00CC9762 /* DoctorManager.swift in Sources */,
 				E590C8F629E03C1500CC9762 /* AdminHomeView.swift in Sources */,
+				E590C9112A02AFFE00CC9762 /* ReviewManager.swift in Sources */,
 				E590C8E429DDD43800CC9762 /* SignUpView.swift in Sources */,
 				E590C8FE2A01322100CC9762 /* PacientClinicView.swift in Sources */,
 				E590C9002A01328C00CC9762 /* PacientAppointmentView.swift in Sources */,
@@ -313,11 +342,14 @@
 				E590C9042A013D2A00CC9762 /* Location.swift in Sources */,
 				E590C8F229E0353600CC9762 /* UserRoleManager.swift in Sources */,
 				E590C8FA2A01295000CC9762 /* Clinic.swift in Sources */,
+				E590C90D2A02AC6200CC9762 /* DoctorView.swift in Sources */,
 				E590C8E629DDD55200CC9762 /* AuthView.swift in Sources */,
 				E590C8F029E033BF00CC9762 /* PacientHomeView.swift in Sources */,
 				E590C8FC2A012B5100CC9762 /* ClinicManager.swift in Sources */,
+				E590C90B2A02A69E00CC9762 /* DoctorListView.swift in Sources */,
 				E590C8F82A01103200CC9762 /* Admin.swift in Sources */,
 				E590C8BB29DB179E00CC9762 /* DoctorAppointmentApp.swift in Sources */,
+				E590C91E2A02BEE200CC9762 /* RatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
