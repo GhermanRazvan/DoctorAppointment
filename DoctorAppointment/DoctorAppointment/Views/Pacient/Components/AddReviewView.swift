@@ -20,7 +20,7 @@ struct AddReviewView: View {
                 TextField("Review Text", text: $reviewText)
                 RatingView(rating: $rating)
                 Button("Add review") {
-                    var review = Review(reviewScore: rating, text: reviewText, doctorID: doctorID, pacientID: userEmail)
+                    let review = Review(reviewScore: rating, text: reviewText, doctorID: doctorID, pacientID: userEmail)
                     ReviewManager.shared.addReview(review: review)
                     dismiss()
 

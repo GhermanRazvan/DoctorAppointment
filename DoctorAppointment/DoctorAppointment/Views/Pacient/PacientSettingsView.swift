@@ -6,10 +6,29 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestoreSwift
 
 struct PacientSettingsView: View {
+    @AppStorage("uid") var userID: String = ""
+    @AppStorage("email") var userEmail: String = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Button(action: {
+                    let firebaseAuth = Auth.auth()
+                    do {
+                        try firebaseAuth.signOut()
+                        withAnimation{
+                            userID =  ""
+                            userEmail = ""
+                        }
+        
+                    } catch let signOutError as NSError {
+                        print("Error signing out: %@", signOutError)
+        
+                    }
+                }){
+                    Text("Sign out User")
+                }
     }
 }
 

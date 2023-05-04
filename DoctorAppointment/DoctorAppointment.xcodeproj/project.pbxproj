@@ -44,6 +44,10 @@
 		E590C9112A02AFFE00CC9762 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9102A02AFFE00CC9762 /* ReviewManager.swift */; };
 		E590C91B2A02BC4A00CC9762 /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C91A2A02BC4A00CC9762 /* AddReviewView.swift */; };
 		E590C91E2A02BEE200CC9762 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C91D2A02BEE200CC9762 /* RatingView.swift */; };
+		E590C9202A041D7200CC9762 /* AdminClinicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C91F2A041D7200CC9762 /* AdminClinicView.swift */; };
+		E590C9222A041D7E00CC9762 /* AdminUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9212A041D7E00CC9762 /* AdminUserView.swift */; };
+		E590C9242A041D8900CC9762 /* AdminSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9232A041D8900CC9762 /* AdminSettingsView.swift */; };
+		E590C9262A0425DB00CC9762 /* AddClinicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9252A0425DB00CC9762 /* AddClinicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +83,10 @@
 		E590C9102A02AFFE00CC9762 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		E590C91A2A02BC4A00CC9762 /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		E590C91D2A02BEE200CC9762 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		E590C91F2A041D7200CC9762 /* AdminClinicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminClinicView.swift; sourceTree = "<group>"; };
+		E590C9212A041D7E00CC9762 /* AdminUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUserView.swift; sourceTree = "<group>"; };
+		E590C9232A041D8900CC9762 /* AdminSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettingsView.swift; sourceTree = "<group>"; };
+		E590C9252A0425DB00CC9762 /* AddClinicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClinicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +226,10 @@
 			isa = PBXGroup;
 			children = (
 				E590C8F529E03C1500CC9762 /* AdminHomeView.swift */,
+				E590C91F2A041D7200CC9762 /* AdminClinicView.swift */,
+				E590C9212A041D7E00CC9762 /* AdminUserView.swift */,
+				E590C9232A041D8900CC9762 /* AdminSettingsView.swift */,
+				E590C9252A0425DB00CC9762 /* AddClinicView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -326,6 +338,7 @@
 				E590C90F2A02AE7600CC9762 /* Review.swift in Sources */,
 				E590C8E829E02B6F00CC9762 /* PacientManager.swift in Sources */,
 				E590C9072A01412A00CC9762 /* LocationUtil.swift in Sources */,
+				E590C9262A0425DB00CC9762 /* AddClinicView.swift in Sources */,
 				E590C91B2A02BC4A00CC9762 /* AddReviewView.swift in Sources */,
 				E590C8E229DDD10F00CC9762 /* String.swift in Sources */,
 				E590C8BD29DB179E00CC9762 /* ContentView.swift in Sources */,
@@ -343,13 +356,16 @@
 				E590C8F229E0353600CC9762 /* UserRoleManager.swift in Sources */,
 				E590C8FA2A01295000CC9762 /* Clinic.swift in Sources */,
 				E590C90D2A02AC6200CC9762 /* DoctorView.swift in Sources */,
+				E590C9222A041D7E00CC9762 /* AdminUserView.swift in Sources */,
 				E590C8E629DDD55200CC9762 /* AuthView.swift in Sources */,
 				E590C8F029E033BF00CC9762 /* PacientHomeView.swift in Sources */,
 				E590C8FC2A012B5100CC9762 /* ClinicManager.swift in Sources */,
 				E590C90B2A02A69E00CC9762 /* DoctorListView.swift in Sources */,
 				E590C8F82A01103200CC9762 /* Admin.swift in Sources */,
 				E590C8BB29DB179E00CC9762 /* DoctorAppointmentApp.swift in Sources */,
+				E590C9202A041D7200CC9762 /* AdminClinicView.swift in Sources */,
 				E590C91E2A02BEE200CC9762 /* RatingView.swift in Sources */,
+				E590C9242A041D8900CC9762 /* AdminSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

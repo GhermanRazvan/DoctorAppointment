@@ -15,45 +15,55 @@ import Contacts
 struct PacientClinicView: View {
     @State var clinics: [Clinic] = []
     var body: some View {
-        NavigationStack{
+        NavigationView{
             
-            List($clinics){ $clinic in
-                NavigationLink{
-                    DoctorListView(clinicID: clinic.id!)
-                }label:{
-                    
-                
-                    VStack(alignment: .leading){
-                        Text("\(clinic.name)")
+            
+            
+                List($clinics){ $clinic in
+                    NavigationLink{
+                        DoctorListView(clinicID: clinic.id!)
+                    }label:{
                         
-                        Text("\(clinic.address)")
-                            .onAppear {
-                                let locationUtil = LocationUtil()
-                                locationUtil.geoCodeLocation(lat: clinic.location.latitude, long: clinic.location.longitude){
-                                    location in
-                                    if let location  = location {
-                                        
-                                        clinic.address = "\(location.street)"
-                                        
-                                        
+                        
+                        VStack(alignment: .leading){
+                            Text("\(clinic.name)")
+                            
+                            Text("\(clinic.address)")
+                                .onAppear {
+                                    let locationUtil = LocationUtil()
+                                    locationUtil.geoCodeLocation(lat: clinic.location.latitude, long: clinic.location.longitude){
+                                        location in
+                                        if let location  = location {
+                                            
+                                            clinic.address = "\(location.street)"
+                                            
+                                            
+                                        }
                                     }
                                 }
-                            }
-                        
+                            
+                        }
                     }
+                    
+                    
                 }
-                
-                
-            }
-            .navigationTitle("Home")
             
-                
-        }.onAppear{ClinicManager.shared.getClinic { result in
-            if let result = result
-            {
-                clinics = result
-            }
-        }}
+            .navigationTitle("Home")
+           
+            
+            
+            
+            
+            
+        }
+        
+        .onAppear{
+            ClinicManager.shared.getClinic { result in
+                if let result = result
+                {
+                    clinics = result
+                }
+            }}
         
     }
     

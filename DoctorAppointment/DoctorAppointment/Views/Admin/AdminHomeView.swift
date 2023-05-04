@@ -9,7 +9,23 @@ import SwiftUI
 
 struct AdminHomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView{
+            AdminClinicView()
+                .tabItem{
+                    Image(systemName: "building")
+                    Text("Clinics")
+                }
+            AdminUserView()
+                .tabItem{
+                    Image(systemName: "person.crop.circle")
+                    Text("Accounts")
+                }
+            AdminSettingsView()
+                .tabItem{
+                    Image(systemName: "person")
+                    Text("User")
+                }
+        }
     }
 }
 
