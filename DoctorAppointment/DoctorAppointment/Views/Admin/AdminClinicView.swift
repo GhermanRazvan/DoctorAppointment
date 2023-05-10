@@ -15,35 +15,32 @@ struct AdminClinicView: View {
     var body: some View {
         NavigationView{
             
-            List($clinics){ $clinic in
-                NavigationLink{
-                    
-                    DoctorListView(clinicID: clinic.id!)
-                }label:{
-                    
+            List{
                 
-                    VStack(alignment: .leading){
-                        Text("\(clinic.name)")
+                ForEach(clinics){ clinic in
+                   
                         
-                        Text("\(clinic.address)")
-                            .onAppear {
-                                let locationUtil = LocationUtil()
-                                locationUtil.geoCodeLocation(lat: clinic.location.latitude, long: clinic.location.longitude){
-                                    location in
-                                    if let location  = location {
-                                        
-                                        clinic.address = "\(location.street)"
-                                        
-                                        
-                                    }
-                                }
+                        
+                        VStack(alignment: .leading){
+                            Text("\(clinic.name)")
+                            
+                            HStack{
+                                Text("\(clinic.street)")
+                                Text("\(clinic.number)")
+                                //Text("\(clinic.city) ")
+                                //Text("\(clinic.country) ")
+                                //Text("\(clinic.zipCode)")
                             }
-                        
-                    }
+                            
+                            
+                        }
+                    
+                    
                 }
-                
-                
-            }.navigationTitle("Clinics")
+                .onDelete(perform: removeRows)
+            }
+
+            .navigationTitle("Clinics")
                 .toolbar {
                     NavigationLink{
                         
@@ -67,7 +64,14 @@ struct AdminClinicView: View {
         
         }
     }
-    
+    func removeRows(at offsets: IndexSet) {
+        var clinicID = clinics[offsets.first!].id!
+        clinics.remove(atOffsets: offsets)
+
+        ClinicManager.shared.deleteClinics(clinicID: clinicID)
+        
+    }
+
 }
 
 struct AdminClinicView_Previews: PreviewProvider {

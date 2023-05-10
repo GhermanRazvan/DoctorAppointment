@@ -45,5 +45,25 @@ class ClinicManager {
         }
     }
     
+    func addClinic(clinic: Clinic){
+        
+        do {
+            try db.collection("Clinic").addDocument(from: clinic)
+        } catch let error {
+            print("Error writing clinic to Firestore: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    func deleteClinics(clinicID: String){
+        db.collection("Clinic").document("\(clinicID)").delete() { err in
+            if let err = err {
+                print("Error removing clinic: \(err)")
+            } else {
+                print("Clinic successfully removed!")
+            }
+        }
+    }
+    
     
 }

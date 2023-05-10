@@ -13,8 +13,11 @@ import FirebaseFirestoreSwift
 public struct Clinic: Codable, Identifiable {
     @DocumentID public var id: String? = UUID().uuidString
     let name: String
-    let location: GeoPoint
-    var address: String = ""
+    var street: String
+    var number: String
+    var country: String
+    var zipCode: String
+    var city: String
     
     
     
@@ -22,7 +25,11 @@ public struct Clinic: Codable, Identifiable {
     enum CodingKeys: String, CodingKey{
         case id = "documentID"
         case name
-        case location
+        case street
+        case number
+        case country
+        case zipCode = "zip_code"
+        case city
         
         
     }

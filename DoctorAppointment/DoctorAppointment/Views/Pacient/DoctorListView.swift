@@ -8,44 +8,64 @@
 import SwiftUI
 
 struct DoctorListView: View {
-    var clinicID: String
+    var clinic: Clinic
     @State var doctors: [Doctor] = []
     var body: some View {
        
         NavigationStack{
             
-        
+           
             
-            
-            List(doctors) {doctor in
+          
                 
-                NavigationLink{
+                Image("rosie")
+                    .resizable()
+                    .scaledToFill()
+                    .frame( height: 100)
+                
+//                VStack(alignment: .leading){
+//
+//                    Text("\(clinic.street)")
+//                    Text("\(clinic.number)")
+//                    Text("\(clinic.city)")
+//                    Text("\(clinic.country)")
+//                    Text("\(clinic.zipCode)")
+//
+//                }
+//
+                
+                
+            
+                List(doctors) {doctor in
                     
-                    DoctorView(doctor: doctor)
-                    
-                }label:{
-                    VStack(alignment: .leading){
-                        HStack{
-                            Text("\(doctor.firstName)")
-                            if doctor.middleName != nil{
+                    NavigationLink{
+                        
+                        DoctorView(doctor: doctor)
+                        
+                    }label:{
+                        VStack(alignment: .leading){
+                            HStack{
+                                Text("\(doctor.firstName)")
+                                if doctor.middleName != nil{
+                                    
+                                    Text("\(doctor.middleName!)")
+                                    
+                                }
                                 
-                                Text("\(doctor.middleName!)")
-                                
+                                Text("\(doctor.lastName)")
                             }
                             
-                            Text("\(doctor.lastName)")
+                            Text("\(doctor.profession)")
+                            
                         }
-                        
-                        Text("\(doctor.profession)")
                         
                     }
                     
                 }
-                
-            }
+            
         }.onAppear{
             
-            DoctorManager.shared.getDoctorsForClinic(clinicID: clinicID) { result in
+            DoctorManager.shared.getDoctorsForClinic(clinicID: clinic.id!) { result in
                 if let result = result {
                     
                     doctors = result
@@ -59,6 +79,6 @@ struct DoctorListView: View {
 
 struct DoctorListView_Previews: PreviewProvider {
     static var previews: some View {
-        DoctorListView(clinicID: "1")
+        DoctorListView(clinic: Clinic(name: "", street: "", number: "", country: "", zipCode: "", city: ""))
     }
 }
