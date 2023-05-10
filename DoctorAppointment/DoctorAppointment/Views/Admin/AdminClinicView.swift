@@ -41,14 +41,14 @@ struct AdminClinicView: View {
             }
 
             .navigationTitle("Clinics")
-                .toolbar {
-                    NavigationLink{
-                        
-                            AddClinicView()
-                        }label: {
-                        Image(systemName: "plus")
-                    }
+            .toolbar {
+                NavigationLink{
+                    
+                        AddClinicView()
+                    }label: {
+                    Image(systemName: "plus")
                 }
+            }
             
             
             
@@ -65,7 +65,7 @@ struct AdminClinicView: View {
         }
     }
     func removeRows(at offsets: IndexSet) {
-        var clinicID = clinics[offsets.first!].id!
+        let clinicID = clinics[offsets.first!].id!
         clinics.remove(atOffsets: offsets)
 
         ClinicManager.shared.deleteClinics(clinicID: clinicID)

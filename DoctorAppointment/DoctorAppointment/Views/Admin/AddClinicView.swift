@@ -34,7 +34,7 @@ struct AddClinicView: View {
             TextField("Clinic city", text: $clinicCity)
                 .disableAutocorrection(true)
             Button("Add clinic") {
-                var clinic = Clinic(name: clinicName, street: clinicStreet, number: clinicNumber, country: clinicCountry, zipCode: clinicPostalCode, city: clinicCity)
+                let clinic = Clinic(name: clinicName, street: clinicStreet, number: clinicNumber, country: clinicCountry, zipCode: clinicPostalCode, city: clinicCity)
                 ClinicManager.shared.addClinic(clinic: clinic)
                 dismiss()
             }

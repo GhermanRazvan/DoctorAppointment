@@ -17,12 +17,12 @@ class DoctorManager {
     
     private init(){}
     
-    func getAllDoctors(completion: @escaping (Result<[Doctor], Error>) -> () ) -> Void{
+    func getAllDoctors(completion: @escaping ([Doctor]?) -> () ){
         var doctors: [Doctor] = []
         db.collection("Doctor").getDocuments { snapshot, err in
             if let err = err {
                 print("Error getting documents: \(err)")
-                completion(.failure(err))
+                completion(nil)
             }
             else {
                 for document in snapshot!.documents{
@@ -35,11 +35,11 @@ class DoctorManager {
                     case .success(let item):
                         doctors.append(item)
                     case .failure(let err):
-                        completion(.failure(err))
+                        print("Error parsing doctor \(err.localizedDescription)")
                     }
                     
                 }
-                completion(.success(doctors))
+                completion(doctors)
                 
             }
 
@@ -76,6 +76,17 @@ class DoctorManager {
             }
             
         }
+    }
+    
+    
+    func addDoctor(doctor: Doctor){
+        
+        do {
+            try db.collection("Doctor").addDocument(from: doctor)
+        } catch let error {
+            print("Error writing doctor to Firestore: \(error)")
+        }
+        
     }
     
     

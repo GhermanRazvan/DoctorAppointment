@@ -48,6 +48,7 @@
 		E590C9222A041D7E00CC9762 /* AdminUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9212A041D7E00CC9762 /* AdminUserView.swift */; };
 		E590C9242A041D8900CC9762 /* AdminSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9232A041D8900CC9762 /* AdminSettingsView.swift */; };
 		E590C9262A0425DB00CC9762 /* AddClinicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9252A0425DB00CC9762 /* AddClinicView.swift */; };
+		E590C9282A0C0C0F00CC9762 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9272A0C0C0F00CC9762 /* AddUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		E590C9212A041D7E00CC9762 /* AdminUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUserView.swift; sourceTree = "<group>"; };
 		E590C9232A041D8900CC9762 /* AdminSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettingsView.swift; sourceTree = "<group>"; };
 		E590C9252A0425DB00CC9762 /* AddClinicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClinicView.swift; sourceTree = "<group>"; };
+		E590C9272A0C0C0F00CC9762 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,12 +175,12 @@
 		E590C8DB29DB237300CC9762 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E590C8BC29DB179E00CC9762 /* ContentView.swift */,
 				E590C9052A01411600CC9762 /* Utils */,
 				E590C8EE29E0339D00CC9762 /* Admin */,
 				E590C8ED29E0339700CC9762 /* Pacient */,
 				E590C8EC29E0338D00CC9762 /* Doctor */,
 				E590C8EB29E0337300CC9762 /* Authentification */,
-				E590C8BC29DB179E00CC9762 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +232,7 @@
 				E590C9212A041D7E00CC9762 /* AdminUserView.swift */,
 				E590C9232A041D8900CC9762 /* AdminSettingsView.swift */,
 				E590C9252A0425DB00CC9762 /* AddClinicView.swift */,
+				E590C9272A0C0C0F00CC9762 /* AddUserView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				E590C8FA2A01295000CC9762 /* Clinic.swift in Sources */,
 				E590C90D2A02AC6200CC9762 /* DoctorView.swift in Sources */,
 				E590C9222A041D7E00CC9762 /* AdminUserView.swift in Sources */,
+				E590C9282A0C0C0F00CC9762 /* AddUserView.swift in Sources */,
 				E590C8E629DDD55200CC9762 /* AuthView.swift in Sources */,
 				E590C8F029E033BF00CC9762 /* PacientHomeView.swift in Sources */,
 				E590C8FC2A012B5100CC9762 /* ClinicManager.swift in Sources */,

@@ -12,7 +12,7 @@ import Contacts
 
 class LocationUtil{
     func geoCodeLocation(lat: Double, long: Double, completion: @escaping (Location?) -> () ) {
-        var geoCoder = CLGeocoder()
+        let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(CLLocation(latitude: lat, longitude: long)){
             (placemarks, error) in
             guard error == nil  else {
@@ -25,7 +25,7 @@ class LocationUtil{
 //                completion(placemarks[0])
                 let loc = placemarks[0]
                 if let address = placemarks[0].postalAddress{
-                    var result = Location(street: address.street, postalCode: loc.postalCode ?? "0", country: address.country, city: address.city)
+                    let result = Location(street: address.street, postalCode: loc.postalCode ?? "0", country: address.country, city: address.city)
                     completion(result)
                 }
             }
