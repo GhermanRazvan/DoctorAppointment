@@ -22,7 +22,7 @@ struct AddUserView: View {
 
 
     var body: some View {
-        NavigationView{
+        NavigationView {
             VStack{
                 TextField("First name", text: $firstName)
                     .disableAutocorrection(true)
@@ -32,22 +32,24 @@ struct AddUserView: View {
                     .disableAutocorrection(true)
                 TextField("email", text: $email)
                     .disableAutocorrection(true)
+                    .textInputAutocapitalization(.never)
                 
                 Form {
                     Picker("Clinics", selection: $selectedClinic) {
+
                         ForEach(stringClinics, id: \.self) {
                             Text($0)
                         }
                     }
-                    .pickerStyle(.navigationLink)
+                    .pickerStyle(.wheel)
                     
                 }
                 Button("Add doctor") {
-                    Auth.auth().createUser(withEmail: email, password: "password") { authResult, error in
-                        
+                    Auth.auth().createUser(withEmail: email, password: "Password2000@") { authResult, error in
+
                     }
-                    
-                    var doctor = Doctor(firstName: firstName, middleName: middleName, lastName: lastName, phoneNumber: "", email: email, profession: "", about: "", clinicId: getClinicIdForClinicName(name: selectedClinic) )
+
+                    let doctor = Doctor(firstName: firstName, middleName: middleName, lastName: lastName, phoneNumber: "", email: email, profession: "", about: "", clinicId: getClinicIdForClinicName(name: selectedClinic) , isActive: false)
                     DoctorManager.shared.addDoctor(doctor: doctor)
                     UserRoleManager.shared.addUserRole(email: email, role: "doctor")
                     dismiss()
@@ -64,6 +66,7 @@ struct AddUserView: View {
                         stringClinics.append(clinic.name)
                     }
                     clinics = result
+                    selectedClinic = stringClinics[0]
                 }
             }
         }

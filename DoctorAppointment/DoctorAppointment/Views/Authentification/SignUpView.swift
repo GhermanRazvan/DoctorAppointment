@@ -189,6 +189,7 @@ struct SignUpView: View {
                     Image(systemName: "mail")
                     TextField("Email",text: $email)
                         .autocapitalization(.none)
+                        .textInputAutocapitalization(.never)
                     
                     Spacer()
                     

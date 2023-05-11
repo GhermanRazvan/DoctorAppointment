@@ -12,43 +12,46 @@ struct AdminUserView: View {
     var body: some View {
         NavigationView{
             
-            List(doctors) {doctor in
+            List{
                 
-                NavigationLink{
+                ForEach(doctors) {doctor in
                     
-                    DoctorView(doctor: doctor)
-                    
-                }label:{
-                    VStack(alignment: .leading){
-                        HStack{
-                            Text("\(doctor.firstName)")
-                            if doctor.middleName != nil{
+                    NavigationLink{
+                        
+                        AdminDoctorView(doctor: doctor)
+                        
+                    }label:{
+                        VStack(alignment: .leading){
+                            HStack{
+                                Text("\(doctor.firstName)")
+                                if doctor.middleName != nil{
+                                    
+                                    Text("\(doctor.middleName!)")
+                                    
+                                }
                                 
-                                Text("\(doctor.middleName!)")
-                                
+                                Text("\(doctor.lastName)")
                             }
                             
-                            Text("\(doctor.lastName)")
+                            Text("\(doctor.profession)")
+                            
                         }
-                        
-                        Text("\(doctor.profession)")
                         
                     }
                     
-                }
+                }.onDelete(perform: removeRows)
+                
                 
             }
             .navigationTitle("Doctors")
             .toolbar {
                 NavigationLink{
                     
-                        AddUserView()
-                    }label: {
+                    AddUserView()
+                }label: {
                     Image(systemName: "plus")
                 }
             }
-            
-            
             
         }.onAppear{
             DoctorManager.shared.getAllDoctors { result in
@@ -58,7 +61,20 @@ struct AdminUserView: View {
             }
         }
     }
+    
+    func removeRows(at offsets: IndexSet) {
+        let doctorID = doctors[offsets.first!].id!
+        doctors.remove(atOffsets: offsets)
+
+        DoctorManager.shared.deleteDoctor(doctorID: doctorID)
+        
+        //Todo: DELETE FROM Auth and UserRoles
+        
+    }
+
 }
+    
+
 
 struct AdminUserView_Previews: PreviewProvider {
     static var previews: some View {

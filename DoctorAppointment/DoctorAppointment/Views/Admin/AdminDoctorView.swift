@@ -1,13 +1,13 @@
 //
-//  DoctorView.swift
+//  AdminDoctorView.swift
 //  DoctorAppointment
 //
-//  Created by Razvan Gherman on 03.05.2023.
+//  Created by Razvan Gherman on 11.05.2023.
 //
 
 import SwiftUI
 
-struct DoctorView: View {
+struct AdminDoctorView: View {
     var doctor: Doctor
     @State private var showingSheet = false
     @State var reviews: [Review] = []
@@ -44,12 +44,7 @@ struct DoctorView: View {
                 
             }
             
-            Button("Add a review") {
-                showingSheet.toggle()
-            }
-            .sheet(isPresented: $showingSheet){
-                AddReviewView(doctorID: doctor.id!)
-        }
+            
             
     }.onAppear{
             
@@ -77,8 +72,9 @@ struct DoctorView: View {
     }
 }
 
-struct DoctorView_Previews: PreviewProvider {
+
+struct AdminDoctorView_Previews: PreviewProvider {
     static var previews: some View {
-        DoctorView(doctor: Doctor(firstName: "", middleName: "", lastName: "", phoneNumber: "", email: "", profession: "", about: "", clinicId: "", isActive: false))
+        AdminDoctorView(doctor: Doctor(firstName: "", middleName: "", lastName: "", phoneNumber: "", email: "", profession: "", about: "", clinicId: "", isActive: false))
     }
 }

@@ -23,7 +23,7 @@ struct ContentView: View {
             NavigationStack{
                 if roleApp == "pacient"{
                     PacientHomeView()
-                }else if roleApp == "doctor"{
+                }else if roleApp == "doctor" {
                     DoctorHomeView()
                 }else if roleApp == "admin"{
                     AdminHomeView()

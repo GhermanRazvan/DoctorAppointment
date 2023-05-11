@@ -49,6 +49,8 @@
 		E590C9242A041D8900CC9762 /* AdminSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9232A041D8900CC9762 /* AdminSettingsView.swift */; };
 		E590C9262A0425DB00CC9762 /* AddClinicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9252A0425DB00CC9762 /* AddClinicView.swift */; };
 		E590C9282A0C0C0F00CC9762 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9272A0C0C0F00CC9762 /* AddUserView.swift */; };
+		E590C92A2A0D0EAA00CC9762 /* AdminDoctorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9292A0D0EAA00CC9762 /* AdminDoctorView.swift */; };
+		E590C92C2A0D12A700CC9762 /* DoctorActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C92B2A0D12A700CC9762 /* DoctorActivationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		E590C9232A041D8900CC9762 /* AdminSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettingsView.swift; sourceTree = "<group>"; };
 		E590C9252A0425DB00CC9762 /* AddClinicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClinicView.swift; sourceTree = "<group>"; };
 		E590C9272A0C0C0F00CC9762 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
+		E590C9292A0D0EAA00CC9762 /* AdminDoctorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDoctorView.swift; sourceTree = "<group>"; };
+		E590C92B2A0D12A700CC9762 /* DoctorActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorActivationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				E590C8F329E03C0500CC9762 /* DoctorHomeView.swift */,
+				E590C92B2A0D12A700CC9762 /* DoctorActivationView.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				E590C9232A041D8900CC9762 /* AdminSettingsView.swift */,
 				E590C9252A0425DB00CC9762 /* AddClinicView.swift */,
 				E590C9272A0C0C0F00CC9762 /* AddUserView.swift */,
+				E590C9292A0D0EAA00CC9762 /* AdminDoctorView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -354,12 +360,14 @@
 				E590C9002A01328C00CC9762 /* PacientAppointmentView.swift in Sources */,
 				E590C8F429E03C0500CC9762 /* DoctorHomeView.swift in Sources */,
 				E590C8DD29DB23A600CC9762 /* Doctor.swift in Sources */,
+				E590C92C2A0D12A700CC9762 /* DoctorActivationView.swift in Sources */,
 				E590C8DF29DDC94100CC9762 /* LoginView.swift in Sources */,
 				E590C9042A013D2A00CC9762 /* Location.swift in Sources */,
 				E590C8F229E0353600CC9762 /* UserRoleManager.swift in Sources */,
 				E590C8FA2A01295000CC9762 /* Clinic.swift in Sources */,
 				E590C90D2A02AC6200CC9762 /* DoctorView.swift in Sources */,
 				E590C9222A041D7E00CC9762 /* AdminUserView.swift in Sources */,
+				E590C92A2A0D0EAA00CC9762 /* AdminDoctorView.swift in Sources */,
 				E590C9282A0C0C0F00CC9762 /* AddUserView.swift in Sources */,
 				E590C8E629DDD55200CC9762 /* AuthView.swift in Sources */,
 				E590C8F029E033BF00CC9762 /* PacientHomeView.swift in Sources */,

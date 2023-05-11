@@ -42,7 +42,7 @@ class DoctorManager {
                 completion(doctors)
                 
             }
-
+            
         }
         
         
@@ -82,11 +82,67 @@ class DoctorManager {
     func addDoctor(doctor: Doctor){
         
         do {
-            try db.collection("Doctor").addDocument(from: doctor)
+            try db.collection("Doctor").document(doctor.email).setData(from: doctor)
         } catch let error {
             print("Error writing doctor to Firestore: \(error)")
         }
         
+    }
+    
+    func deleteDoctor(doctorID: String){
+        db.collection("Doctor").document("\(doctorID)").delete() { err in
+            if let err = err {
+                print("Error removing doctor: \(err)")
+            } else {
+                print("Doctor successfully removed!")
+            }
+        }
+    }
+    
+    func verifyDoctorAcccount(email: String, completion: @escaping (Bool?) -> ()) {
+        
+        db.collection("Doctor").whereField("email", isEqualTo: email).getDocuments { snapshot, err in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(nil)
+            }
+            else {
+                
+                let result = Result{
+                    try snapshot!.documents[0].data(as: Doctor.self)
+                    
+                }
+                switch result{
+                case .success(let item):
+                    completion(item.isActive)
+                case .failure(let err):
+                    print("Couldn't parse doctor \(err.localizedDescription)")
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    func confirmDoctorAccount(phoneNumber:String, about:String,  profession:String, email: String){
+        
+        db.collection("Doctor").document(email).updateData([
+            "phone_number": phoneNumber,
+            "profession": profession,
+            "about": about,
+            "is_active": true
+            
+        ]){ err in
+            if let err = err {
+                print("Error updating document: \(err)")
+                
+            } else
+            {
+                print("Document successfully updated")
+                
+            }
+        }
     }
     
     

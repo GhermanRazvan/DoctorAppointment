@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct DoctorHomeView: View {
+    @AppStorage("email") var userEmail: String = ""
+    @State var isActive: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+
+            TabView{
+                    
+                    AdminSettingsView()
+                        .tabItem{
+                            Image(systemName: "person")
+                            Text("User")
+                        }
+                }
+            .fullScreenCover(isPresented: $isActive, content: DoctorActivationView.init)
+                
+                
+
+        
+        .onAppear{
+            DoctorManager.shared.verifyDoctorAcccount(email: userEmail) { rez in
+                if let rez = rez {
+                    isActive = !rez
+                }
+            }
+        }
     }
 }
 

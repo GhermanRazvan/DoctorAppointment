@@ -19,6 +19,7 @@ public struct Doctor: Codable, Identifiable {
     let profession: String
     let about: String?
     let clinicId: String
+    let isActive: Bool
     
     
     enum CodingKeys: String, CodingKey{
@@ -31,6 +32,7 @@ public struct Doctor: Codable, Identifiable {
         case profession
         case about
         case clinicId = "clinic_id"
+        case isActive = "is_active"
         
     }
 }
