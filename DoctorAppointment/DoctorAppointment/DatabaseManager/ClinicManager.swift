@@ -45,14 +45,17 @@ class ClinicManager {
         }
     }
     
-    func addClinic(clinic: Clinic){
+    func addClinic(clinic: Clinic, completion: @escaping (String?) -> () )  {
         
         do {
-            try db.collection("Clinic").addDocument(from: clinic)
+            let ref = try db.collection("Clinic").addDocument(from: clinic)
+            completion(ref.documentID)
+            
+            
         } catch let error {
+            completion(nil)
             print("Error writing clinic to Firestore: \(error.localizedDescription)")
         }
-        
     }
     
     func deleteClinics(clinicID: String){
@@ -64,6 +67,26 @@ class ClinicManager {
             }
         }
     }
+    
+    func updateClinicPicture(clinicPicture: String,  clinicID: String){
+        
+        db.collection("Clinic").document(clinicID).updateData([
+            "clinic_image": clinicPicture
+            
+        ]){ err in
+            if let err = err {
+                print("Error updating picture: \(err.localizedDescription)")
+                
+            } else
+            {
+                print("Picture successfully updated")
+                
+            }
+        }
+    }
+    
+    
+    
     
     
 }

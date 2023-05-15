@@ -13,29 +13,31 @@ struct DoctorListView: View {
     var body: some View {
        
         NavigationStack{
-            
-           
-            
-          
-                
-                Image("rosie")
+            if clinic.clinicImage != nil {
+                AsyncImage(url: URL(string: clinic.clinicImage!)){ phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                        .resizable()
+                        .frame( height: 100)
+                        .scaledToFill()
+                        .aspectRatio(contentMode: .fill)
+                    case .failure( _):
+                        Image(systemName: "Photo")
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+            }else {
+                Image(systemName: "building.2")
                     .resizable()
                     .scaledToFill()
                     .frame( height: 100)
-                
-//                VStack(alignment: .leading){
-//
-//                    Text("\(clinic.street)")
-//                    Text("\(clinic.number)")
-//                    Text("\(clinic.city)")
-//                    Text("\(clinic.country)")
-//                    Text("\(clinic.zipCode)")
-//
-//                }
-//
-                
-                
+            }
             
+               
                 List(doctors) {doctor in
                     
                     NavigationLink{
@@ -79,6 +81,6 @@ struct DoctorListView: View {
 
 struct DoctorListView_Previews: PreviewProvider {
     static var previews: some View {
-        DoctorListView(clinic: Clinic(name: "", street: "", number: "", country: "", zipCode: "", city: ""))
+        DoctorListView(clinic: Clinic(name: "", street: "", number: "", country: "", zipCode: "", city: "", clinicImage: ""))
     }
 }

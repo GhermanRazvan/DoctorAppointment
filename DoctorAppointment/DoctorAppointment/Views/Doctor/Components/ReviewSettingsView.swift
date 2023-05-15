@@ -19,14 +19,8 @@ struct ReviewSettingsView: View {
                     Text(review.text)
 //                        .frame(maxWidth: .infinity, alignment: .leading)
                     DoctorRatingView(rating: review.reviewScore)
-                    
-                    
                 }
-                
             }
-           
-            
-            
         }.onAppear{
             ReviewManager.shared.getReviewsForDoctors(doctorID: userEmail) { result in
                 if let result = result{

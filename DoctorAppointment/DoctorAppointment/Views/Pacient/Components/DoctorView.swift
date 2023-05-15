@@ -13,6 +13,35 @@ struct DoctorView: View {
     @State var reviews: [Review] = []
     var body: some View {
         VStack{
+            if doctor.profilePicture != nil {
+                AsyncImage(url: URL(string: doctor.profilePicture!)){ phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.gray, lineWidth: 2))
+                    case .failure( _):
+                        Image(systemName: "Photo")
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+            }else {
+                Image(systemName: "person")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.gray, lineWidth: 2))
+                
+            }
             HStack{
                 Text("\(doctor.firstName)")
                 if doctor.middleName != nil{
@@ -39,9 +68,6 @@ struct DoctorView: View {
                         /*@START_MENU_TOKEN@*/Text(review.text)/*@END_MENU_TOKEN@*/
                     }
                 }
-                
-                
-                
             }
             
             Button("Add a review") {
@@ -50,8 +76,10 @@ struct DoctorView: View {
             .sheet(isPresented: $showingSheet){
                 AddReviewView(doctorID: doctor.id!)
         }
-            
-    }.onAppear{
+         Spacer()
+    }
+        
+        .onAppear{
             
             ReviewManager.shared.getReviewsForDoctors(doctorID: doctor.id! ){ result in
                 

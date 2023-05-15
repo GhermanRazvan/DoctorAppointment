@@ -18,6 +18,7 @@ public struct Clinic: Codable, Identifiable {
     var country: String
     var zipCode: String
     var city: String
+    let clinicImage: String?
     
     
     
@@ -30,6 +31,7 @@ public struct Clinic: Codable, Identifiable {
         case country
         case zipCode = "zip_code"
         case city
+        case clinicImage = "clinic_image"
         
         
     }

@@ -47,4 +47,16 @@ class StorageManager {
             completion(.success(url))
         }
     }
+    func getClinicPictureURL(clinicID: String,  completion: @escaping (Result<URL, Error>) -> ()) {
+        let path = "pictures/clinic/" + clinicID + "/clinicPicture.png"
+        let storageRef = storage.reference().child(path)
+        
+        storageRef.downloadURL { url, error in
+            guard let url = url, error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            completion(.success(url))
+        }
+    }
 }

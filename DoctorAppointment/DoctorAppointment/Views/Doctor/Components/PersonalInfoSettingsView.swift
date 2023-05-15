@@ -20,9 +20,7 @@ struct PersonalInfoSettingsView: View {
     @State var selectedItem: PhotosPickerItem? = nil
     @State var selectedImageData: Data? = nil
     @State var imageURL = ""
-    
     var body: some View {
-        
         VStack{
             if imageURL != ""{
                 AsyncImage(url: URL(string: imageURL)){ phase in
@@ -53,10 +51,6 @@ struct PersonalInfoSettingsView: View {
                     .overlay(Circle().stroke(Color.gray, lineWidth: 2))
                 
             }
-
-               
-            
-            
             PhotosPicker(selection: $selectedItem, matching: .images) {
                 Text("Update picture")
             }.onChange(of: selectedItem) { newItem in
@@ -76,7 +70,6 @@ struct PersonalInfoSettingsView: View {
                             let path = "pictures/doctor/" + userEmail + "/profilePicture.png"
                             group.enter()
                             queue.async {
-                                
                                 StorageManager.shared.addImageToFirebaseStorage(image: uiImage!, toPath: path) { result in
                                     print(result)
                                     group.leave()
@@ -102,19 +95,11 @@ struct PersonalInfoSettingsView: View {
                                 DoctorManager.shared.updateProfilePicture(profilePicture: imageURL, email: userEmail)
                                 group.leave()
                             }
-                            
-                            
                         }
-                        
                     }
                 }
-                
-                
-                
             }
             VStack{
-                
-                
                 if isEditing{
                     TextField("First name", text: $firstName)
                         .textInputAutocapitalization(.never)
@@ -150,18 +135,13 @@ struct PersonalInfoSettingsView: View {
                 }
                 
             }
-            
             if isEditing{
                 Button("Update info") {
                     DoctorManager.shared.updatePersonalInfromation(firstName: firstName, middleName: middleName, lastName: lastName, about: about, phoneNumber: phoneNumber ,email: userEmail)
                     isEditing = false
-                    
                 }
             }
-            
-            
             Spacer()
-            
         }
         .toolbar{
             Button {
@@ -193,14 +173,11 @@ struct PersonalInfoSettingsView: View {
                     if let url = result.profilePicture{
                         imageURL = url
                     }
-                    
-                    
                 }
             }
         }
     }
 }
-
 struct PersonalInfoSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         PersonalInfoSettingsView()
