@@ -51,6 +51,12 @@
 		E590C9282A0C0C0F00CC9762 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9272A0C0C0F00CC9762 /* AddUserView.swift */; };
 		E590C92A2A0D0EAA00CC9762 /* AdminDoctorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9292A0D0EAA00CC9762 /* AdminDoctorView.swift */; };
 		E590C92C2A0D12A700CC9762 /* DoctorActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C92B2A0D12A700CC9762 /* DoctorActivationView.swift */; };
+		E590C92E2A10F71D00CC9762 /* DoctorSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C92D2A10F71D00CC9762 /* DoctorSettingView.swift */; };
+		E590C9312A10FD5200CC9762 /* PersonalInfoSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9302A10FD5200CC9762 /* PersonalInfoSettingsView.swift */; };
+		E590C9352A10FE9100CC9762 /* PasswordSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9342A10FE9100CC9762 /* PasswordSettingsView.swift */; };
+		E590C9372A10FEC400CC9762 /* ReviewSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9362A10FEC400CC9762 /* ReviewSettingsView.swift */; };
+		E590C9392A12558B00CC9762 /* DoctorRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C9382A12558B00CC9762 /* DoctorRatingView.swift */; };
+		E590C93B2A1259C600CC9762 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590C93A2A1259C600CC9762 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +99,12 @@
 		E590C9272A0C0C0F00CC9762 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
 		E590C9292A0D0EAA00CC9762 /* AdminDoctorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDoctorView.swift; sourceTree = "<group>"; };
 		E590C92B2A0D12A700CC9762 /* DoctorActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorActivationView.swift; sourceTree = "<group>"; };
+		E590C92D2A10F71D00CC9762 /* DoctorSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSettingView.swift; sourceTree = "<group>"; };
+		E590C9302A10FD5200CC9762 /* PersonalInfoSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoSettingsView.swift; sourceTree = "<group>"; };
+		E590C9342A10FE9100CC9762 /* PasswordSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsView.swift; sourceTree = "<group>"; };
+		E590C9362A10FEC400CC9762 /* ReviewSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSettingsView.swift; sourceTree = "<group>"; };
+		E590C9382A12558B00CC9762 /* DoctorRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorRatingView.swift; sourceTree = "<group>"; };
+		E590C93A2A1259C600CC9762 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +184,7 @@
 				E590C8F129E0353600CC9762 /* UserRoleManager.swift */,
 				E590C8FB2A012B5100CC9762 /* ClinicManager.swift */,
 				E590C9102A02AFFE00CC9762 /* ReviewManager.swift */,
+				E590C93A2A1259C600CC9762 /* StorageManager.swift */,
 			);
 			path = DatabaseManager;
 			sourceTree = "<group>";
@@ -210,8 +223,10 @@
 		E590C8EC29E0338D00CC9762 /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				E590C92F2A10FD2E00CC9762 /* Components */,
 				E590C8F329E03C0500CC9762 /* DoctorHomeView.swift */,
 				E590C92B2A0D12A700CC9762 /* DoctorActivationView.swift */,
+				E590C92D2A10F71D00CC9762 /* DoctorSettingView.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -257,6 +272,17 @@
 				E590C90C2A02AC6200CC9762 /* DoctorView.swift */,
 				E590C91A2A02BC4A00CC9762 /* AddReviewView.swift */,
 				E590C91D2A02BEE200CC9762 /* RatingView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E590C92F2A10FD2E00CC9762 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E590C9302A10FD5200CC9762 /* PersonalInfoSettingsView.swift */,
+				E590C9342A10FE9100CC9762 /* PasswordSettingsView.swift */,
+				E590C9362A10FEC400CC9762 /* ReviewSettingsView.swift */,
+				E590C9382A12558B00CC9762 /* DoctorRatingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -354,6 +380,7 @@
 				E590C9022A01329D00CC9762 /* PacientSettingsView.swift in Sources */,
 				E590C8D829DB1CBF00CC9762 /* DoctorManager.swift in Sources */,
 				E590C8F629E03C1500CC9762 /* AdminHomeView.swift in Sources */,
+				E590C9352A10FE9100CC9762 /* PasswordSettingsView.swift in Sources */,
 				E590C9112A02AFFE00CC9762 /* ReviewManager.swift in Sources */,
 				E590C8E429DDD43800CC9762 /* SignUpView.swift in Sources */,
 				E590C8FE2A01322100CC9762 /* PacientClinicView.swift in Sources */,
@@ -362,10 +389,15 @@
 				E590C8DD29DB23A600CC9762 /* Doctor.swift in Sources */,
 				E590C92C2A0D12A700CC9762 /* DoctorActivationView.swift in Sources */,
 				E590C8DF29DDC94100CC9762 /* LoginView.swift in Sources */,
+				E590C9392A12558B00CC9762 /* DoctorRatingView.swift in Sources */,
+				E590C93B2A1259C600CC9762 /* StorageManager.swift in Sources */,
 				E590C9042A013D2A00CC9762 /* Location.swift in Sources */,
 				E590C8F229E0353600CC9762 /* UserRoleManager.swift in Sources */,
 				E590C8FA2A01295000CC9762 /* Clinic.swift in Sources */,
+				E590C92E2A10F71D00CC9762 /* DoctorSettingView.swift in Sources */,
 				E590C90D2A02AC6200CC9762 /* DoctorView.swift in Sources */,
+				E590C9372A10FEC400CC9762 /* ReviewSettingsView.swift in Sources */,
+				E590C9312A10FD5200CC9762 /* PersonalInfoSettingsView.swift in Sources */,
 				E590C9222A041D7E00CC9762 /* AdminUserView.swift in Sources */,
 				E590C92A2A0D0EAA00CC9762 /* AdminDoctorView.swift in Sources */,
 				E590C9282A0C0C0F00CC9762 /* AddUserView.swift in Sources */,

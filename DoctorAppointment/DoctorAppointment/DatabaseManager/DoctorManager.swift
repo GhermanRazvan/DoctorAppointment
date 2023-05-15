@@ -49,6 +49,21 @@ class DoctorManager {
         
     }
     
+    func getDoctorForEmail(email: String, completion: @escaping (Doctor?) -> () ){
+        
+        db.collection("Doctor").document(email).getDocument(as: Doctor.self) { result in
+            switch result {
+            case .success(let success):
+                completion(success)
+            case .failure(let failure):
+                completion(nil)
+                print("Error getting doctor \(failure)")
+            }
+            
+        }
+        
+    }
+    
     func getDoctorsForClinic(clinicID: String, completion: @escaping ([Doctor]?) -> ()){
         var doctors: [Doctor] = []
         db.collection("Doctor").whereField("clinic_id", isEqualTo: clinicID).getDocuments { snapshot, err in
@@ -140,6 +155,44 @@ class DoctorManager {
             } else
             {
                 print("Document successfully updated")
+                
+            }
+        }
+    }
+    
+    func updatePersonalInfromation(firstName:String,   middleName:String, lastName:String, about:String, phoneNumber: String, email: String){
+        
+        db.collection("Doctor").document(email).updateData([
+            "first_name": firstName,
+            "middle_name": middleName,
+            "last_name": lastName,
+            "about": about,
+            "phone_number": phoneNumber
+            
+        ]){ err in
+            if let err = err {
+                print("Error updating document: \(err)")
+                
+            } else
+            {
+                print("Document successfully updated")
+                
+            }
+        }
+    }
+    
+    func updateProfilePicture(profilePicture: String,  email: String){
+        
+        db.collection("Doctor").document(email).updateData([
+            "profile_picture": profilePicture
+            
+        ]){ err in
+            if let err = err {
+                print("Error updating picture: \(err.localizedDescription)")
+                
+            } else
+            {
+                print("Picture successfully updated")
                 
             }
         }

@@ -49,7 +49,7 @@ struct AddUserView: View {
 
                     }
 
-                    let doctor = Doctor(firstName: firstName, middleName: middleName, lastName: lastName, phoneNumber: "", email: email, profession: "", about: "", clinicId: getClinicIdForClinicName(name: selectedClinic) , isActive: false)
+                    let doctor = Doctor(firstName: firstName, middleName: middleName, lastName: lastName, phoneNumber: "", email: email, profession: "", about: "", clinicId: getClinicIdForClinicName(name: selectedClinic) , isActive: false, profilePicture: nil)
                     DoctorManager.shared.addDoctor(doctor: doctor)
                     UserRoleManager.shared.addUserRole(email: email, role: "doctor")
                     dismiss()

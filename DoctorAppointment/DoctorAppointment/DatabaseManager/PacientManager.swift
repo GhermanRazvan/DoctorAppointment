@@ -17,6 +17,7 @@ class PacientManager{
     private init(){}
     
     func addPacient(pacient:Pacient, completion: @escaping (Bool) -> ()){
+        print(pacient.email)
         do {
             try db.collection("Pacient").document(pacient.email).setData(from: pacient)
             completion(true)
@@ -24,8 +25,6 @@ class PacientManager{
             print("Error writing pacient to Firestore: \(error)")
             completion(false)
         }
-        
-        
         
     }
     

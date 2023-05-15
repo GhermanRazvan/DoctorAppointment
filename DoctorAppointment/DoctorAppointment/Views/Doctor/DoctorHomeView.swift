@@ -14,8 +14,8 @@ struct DoctorHomeView: View {
         
 
             TabView{
-                    
-                    AdminSettingsView()
+                
+                    DoctorSettingView()
                         .tabItem{
                             Image(systemName: "person")
                             Text("User")

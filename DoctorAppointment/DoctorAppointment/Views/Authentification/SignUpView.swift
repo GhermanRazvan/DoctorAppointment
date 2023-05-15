@@ -11,7 +11,6 @@ import FirebaseAuth
 struct SignUpView: View {
     
     @Binding var currentShowingView: String
-    @AppStorage("uid") var userID: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var firstName: String = ""
@@ -57,7 +56,7 @@ struct SignUpView: View {
                 Group{
                     HStack{
                         
-                        Image(systemName: "First Name")
+                        Image(systemName: "person")
                         TextField("First Name",text: $firstName)
                             .autocapitalization(.none)
                         
@@ -88,7 +87,7 @@ struct SignUpView: View {
                     
                     HStack{
                         
-                        Image(systemName: "Middle Name")
+                        Image(systemName: "person")
                         TextField("Middle Name",text: $middleName)
                             .autocapitalization(.none)
                         
@@ -120,7 +119,7 @@ struct SignUpView: View {
                     
                     HStack{
                         
-                        Image(systemName: "Last Name")
+                        Image(systemName: "person")
                         TextField("Last Name",text: $lastName)
                             .autocapitalization(.none)
                         
@@ -153,7 +152,7 @@ struct SignUpView: View {
                 
                 HStack{
                     
-                    Image(systemName: "Phone Number")
+                    Image(systemName: "phone")
                     TextField("Phone Number",text: $phoneNumber)
                         .autocapitalization(.none)
                     
@@ -166,10 +165,6 @@ struct SignUpView: View {
                             .foregroundColor( .green )
                         
                     }
-                    
-                    
-                    
-                    
                     
                 }
                 .foregroundColor(.white)
@@ -193,14 +188,14 @@ struct SignUpView: View {
                     
                     Spacer()
                     
-                    if (email.count != 0)
-                    {
-                        Image(systemName: email.isValidEmail() ? "checkmark" : "xmark")
-                            .fontWeight(.bold)
-                            .foregroundColor(email.isValidEmail() ? .green : .red)
-                        
-                    }
-                    
+//                    if (email.count != 0)
+//                    {
+//                        Image(systemName: email.isValidEmail() ? "checkmark" : "xmark")
+//                            .fontWeight(.bold)
+//                            .foregroundColor(email.isValidEmail() ? .green : .red)
+//
+//                    }
+//
                     
                     
                     
@@ -213,7 +208,6 @@ struct SignUpView: View {
                         .stroke(lineWidth: 2)
                         .foregroundColor(.white)
                 )
-                
                 .padding()
                 
                 HStack{
@@ -223,13 +217,13 @@ struct SignUpView: View {
                     
                     Spacer()
                     
-                    if(password.count != 0)
-                    {
-                        Image(systemName: isValidPassword(password) ? "checkmark" : "xmark")
-                            .fontWeight(.bold)
-                            .foregroundColor(isValidPassword(password) ? .green : .red)
-                        
-                    }
+//                    if(password.count != 0)
+//                    {
+//                        Image(systemName: isValidPassword(password) ? "checkmark" : "xmark")
+//                            .fontWeight(.bold)
+//                            .foregroundColor(isValidPassword(password) ? .green : .red)
+//
+//                    }
                     
                     
                 }
@@ -240,9 +234,6 @@ struct SignUpView: View {
                         .stroke(lineWidth: 2)
                         .foregroundColor(.white)
                 )
-                
-                
-                
                 .padding()
                 
                 
@@ -264,33 +255,33 @@ struct SignUpView: View {
                 Spacer()
                 
                 Button{
-                    
+
                     Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                        
+
                         if let error = error {
                             print(error)
                             return
                         }
-                        
-                        
+
+
                         if let authResult = authResult {
                             
-                            userID = authResult.user.uid
-                            let pacient = Pacient(firstName: firstName, middleName: middleName, lastName: lastName, phoneNumber: phoneNumber, email: email.lowercased())
+                            let pacient = Pacient(firstName: firstName, middleName: middleName, lastName: lastName, phoneNumber: phoneNumber, email: email)
                             PacientManager.shared.addPacient(pacient: pacient) { result in
                                 if (result == false){
                                     print("Unable to write user to firebase")
                                 }
-                                UserRoleManager.shared.addUserRole(email: email.lowercased(), role: "pacient")
-                                
-                                
+
+
+
                             }
-                            
-                            
+                            UserRoleManager.shared.addUserRole(email: email, role: "pacient")
+
+
                         }
                     }
-                    
-                    
+
+
                 }label:{
                     Text("Create new Account")
                         .foregroundColor(.black)
