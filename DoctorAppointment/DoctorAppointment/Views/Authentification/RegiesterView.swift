@@ -1,26 +1,21 @@
 //
-//  SignUpView.swift
+//  RegiesterView.swift
 //  DoctorAppointment
 //
-//  Created by Razvan Gherman on 05.04.2023.
+//  Created by Razvan Gherman on 16.05.2023.
 //
 
 import SwiftUI
 import FirebaseAuth
 
-struct SignUpView: View {
-    
-    @Binding var currentShowingView: String
+struct RegiesterView: View {
+    @Environment (\.dismiss) var dismiss
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var firstName: String = ""
     @State private var middleName: String = ""
     @State private var lastName: String = ""
     @State private var phoneNumber: String = ""
-    
-    
-    
-    
     
     private func isValidPassword(_ password: String) -> Bool{
         //minimum 6 char long
@@ -69,11 +64,6 @@ struct SignUpView: View {
                                 .foregroundColor( .green )
                             
                         }
-                        
-                        
-                        
-                        
-                        
                     }
                     .foregroundColor(.white)
                     .padding()
@@ -100,11 +90,6 @@ struct SignUpView: View {
                                 .foregroundColor( .green )
                             
                         }
-                        
-                        
-                        
-                        
-                        
                     }
                     .foregroundColor(.white)
                     .padding()
@@ -132,11 +117,6 @@ struct SignUpView: View {
                                 .foregroundColor( .green )
                             
                         }
-                        
-                        
-                        
-                        
-                        
                     }
                     .foregroundColor(.white)
                     .padding()
@@ -176,9 +156,6 @@ struct SignUpView: View {
                 )
                 
                 .padding()
-                
-                
-                
                 HStack{
                     
                     Image(systemName: "mail")
@@ -195,11 +172,6 @@ struct SignUpView: View {
 //                            .foregroundColor(email.isValidEmail() ? .green : .red)
 //
 //                    }
-//
-                    
-                    
-                    
-                    
                 }
                 .foregroundColor(.white)
                 .padding()
@@ -237,10 +209,7 @@ struct SignUpView: View {
                 .padding()
                 Button(action: {
                     
-                    withAnimation{
-                        self.currentShowingView = "login"
-                        
-                    }
+                    dismiss()
                 }){
                     Text("Already have an account?")
                         .foregroundColor(.gray)
@@ -259,19 +228,17 @@ struct SignUpView: View {
                         }
 
 
-                        if let authResult = authResult {
+                        if authResult != nil {
                             
                             let pacient = Pacient(firstName: firstName, middleName: middleName, lastName: lastName, phoneNumber: phoneNumber, email: email)
                             PacientManager.shared.addPacient(pacient: pacient) { result in
                                 if (result == false){
                                     print("Unable to write user to firebase")
-                                }
-
-
-
-                            }
+                                }                            }
                             UserRoleManager.shared.addUserRole(email: email, role: "pacient")
-
+                            DispatchQueue.main.async {
+                                dismiss()
+                            }
 
                         }
                     }
@@ -297,12 +264,8 @@ struct SignUpView: View {
     }
 }
 
-
-struct SignUpView_Previews: PreviewProvider {
+struct RegiesterView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        RegiesterView()
     }
 }
-
-
-

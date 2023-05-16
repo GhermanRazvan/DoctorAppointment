@@ -17,7 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        if userID == "" {
+        if Auth.auth().currentUser == nil  {
             AuthView()
         }else {
             NavigationStack{
@@ -28,13 +28,14 @@ struct ContentView: View {
                 }else if roleApp == "admin"{
                     AdminHomeView()
                 }
-            }.onAppear{UserRoleManager.shared.getUserRoleForEmail(email: userEmail) { role in
+            }
+            .onAppear{
+                UserRoleManager.shared.getUserRoleForEmail(email: userEmail) { role in
                 if let role = role{
                     roleApp = role
                 }
-            }}
-            
-            
+            }
+            }
         }
     }
 }

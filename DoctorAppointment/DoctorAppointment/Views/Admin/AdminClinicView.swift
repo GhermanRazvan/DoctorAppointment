@@ -27,9 +27,6 @@ struct AdminClinicView: View {
                             HStack{
                                 Text("\(clinic.street)")
                                 Text("\(clinic.number)")
-                                //Text("\(clinic.city) ")
-                                //Text("\(clinic.country) ")
-                                //Text("\(clinic.zipCode)")
                             }
                             
                             

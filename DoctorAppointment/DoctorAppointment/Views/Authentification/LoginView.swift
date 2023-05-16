@@ -32,7 +32,6 @@ struct LoginView: View {
     var body: some View {
         ZStack{
             Color.white.edgesIgnoringSafeArea(.all)
-            
             VStack{
                 HStack{
                     Text("Welcome Back!")
@@ -62,11 +61,6 @@ struct LoginView: View {
                             .foregroundColor(email.isValidEmail() ? .green : .red)
                         
                     }
-                    
-                    
-                    
-                    
-                    
                 }
                 .padding()
                 .overlay(
@@ -132,9 +126,6 @@ struct LoginView: View {
                             withAnimation{
                                 userID = authResult.user.uid
                                 userEmail = authResult.user.email!
-                               
-                                
-                                
                             }
                             
                         }

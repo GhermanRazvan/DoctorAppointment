@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct PacientHomeView: View {
-    @AppStorage("uid") var userID: String = ""
+   
     @AppStorage("email") var userEmail: String = ""
     var body: some View {
         

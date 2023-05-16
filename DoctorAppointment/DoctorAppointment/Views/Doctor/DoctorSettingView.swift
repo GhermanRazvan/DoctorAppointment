@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct DoctorSettingView: View {
-    @AppStorage("uid") var userID: String = ""
+    @Environment (\.dismiss) var dismiss
     @AppStorage("email") var userEmail: String = ""
     var body: some View {
         NavigationView{
@@ -38,11 +38,8 @@ struct DoctorSettingView: View {
                     let firebaseAuth = Auth.auth()
                     do {
                         try firebaseAuth.signOut()
-                        withAnimation{
-                            userID =  ""
                             userEmail = ""
-                        }
-
+                            dismiss()
                     } catch let signOutError as NSError {
                         print("Error signing out: %@", signOutError)
 

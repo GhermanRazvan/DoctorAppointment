@@ -16,15 +16,10 @@ struct PacientClinicView: View {
     @State var clinics: [Clinic] = []
     var body: some View {
         NavigationView{
-            
-            
-                
                 List(clinics){ clinic in
                     NavigationLink{
                         DoctorListView(clinic: clinic)
                     }label:{
-                        
-                        
                         VStack(alignment: .leading){
                             Text("\(clinic.name)")
                             HStack{
@@ -34,18 +29,11 @@ struct PacientClinicView: View {
                                 Text("\(clinic.country)")
                                 Text("\(clinic.zipCode)")
                             }
-                            
-                            
                         }
                     }
-                    
-                    
                 }
-            
             .navigationTitle("Home")
-           
         }
-        
         .onAppear{
             ClinicManager.shared.getClinic { result in
                 if let result = result

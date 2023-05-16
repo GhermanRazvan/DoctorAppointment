@@ -8,17 +8,20 @@
 import SwiftUI
 import FirebaseAuth
 struct AdminSettingsView: View {
-    @AppStorage("uid") var userID: String = ""
+    @Environment (\.dismiss) var dismiss
+
     @AppStorage("email") var userEmail: String = ""
     var body: some View {
         Button(action: {
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()
-                withAnimation{
-                    userID =  ""
+              
+                 
                     userEmail = ""
-                }
+                    dismiss()
+                    
+              
 
             } catch let signOutError as NSError {
                 print("Error signing out: %@", signOutError)
