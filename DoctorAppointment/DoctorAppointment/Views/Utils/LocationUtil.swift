@@ -11,26 +11,17 @@ import CoreLocation
 import Contacts
 
 class LocationUtil{
-    func geoCodeLocation(lat: Double, long: Double, completion: @escaping (Location?) -> () ) {
+    func geoCodeAdress(address: String, completion: @escaping (CLLocation?) -> () ){
         let geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(CLLocation(latitude: lat, longitude: long)){
-            (placemarks, error) in
-            guard error == nil  else {
+        geoCoder.geocodeAddressString(address) { placemarks, err in
+            guard let placemarks = placemarks,
+                  let location = placemarks.first?.location
+            else{
                 completion(nil)
                 return
-                
             }
-            
-            if let placemarks = placemarks{
-//                completion(placemarks[0])
-                let loc = placemarks[0]
-                if let address = placemarks[0].postalAddress{
-                    let result = Location(street: address.street, postalCode: loc.postalCode ?? "0", country: address.country, city: address.city)
-                    completion(result)
-                }
-            }
+            completion(location)
         }
-
     }
     
 }

@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct DoctorListView: View {
-    var clinic: Clinic
+    
     @State var doctors: [Doctor] = []
+    @State var isShowingMap: Bool = false
+    var clinic: Clinic
     var body: some View {
-       
-        NavigationStack{
+        
+        
+        VStack{
             if clinic.clinicImage != nil {
                 AsyncImage(url: URL(string: clinic.clinicImage!)){ phase in
                     switch phase {
@@ -20,10 +23,10 @@ struct DoctorListView: View {
                         ProgressView()
                     case .success(let image):
                         image
-                        .resizable()
-                        .frame( height: 100)
-                        .scaledToFill()
-                        .aspectRatio(contentMode: .fill)
+                            .resizable()
+                            .frame( height: 100)
+                            .scaledToFill()
+                            .aspectRatio(contentMode: .fill)
                     case .failure( _):
                         Image(systemName: "Photo")
                     @unknown default:
@@ -37,35 +40,47 @@ struct DoctorListView: View {
                     .frame( height: 100)
             }
             
-               
-                List(doctors) {doctor in
+            
+            
+            List(doctors) {doctor in
+                
+                NavigationLink{
                     
-                    NavigationLink{
-                        
-                        DoctorView(doctor: doctor)
-                        
-                    }label:{
-                        VStack(alignment: .leading){
-                            HStack{
-                                Text("\(doctor.firstName)")
-                                if doctor.middleName != nil{
-                                    
-                                    Text("\(doctor.middleName!)")
-                                    
-                                }
+                    DoctorView(doctor: doctor)
+                    
+                }label:{
+                    VStack(alignment: .leading){
+                        HStack{
+                            Text("\(doctor.firstName)")
+                            if doctor.middleName != nil{
                                 
-                                Text("\(doctor.lastName)")
+                                Text("\(doctor.middleName!)")
+                                
                             }
                             
-                            Text("\(doctor.profession)")
-                            
+                            Text("\(doctor.lastName)")
                         }
+                        
+                        Text("\(doctor.profession)")
                         
                     }
                     
                 }
+                
+            }
             
-        }.onAppear{
+        }
+        .toolbar {
+            NavigationLink {
+                MapView(clinic: clinic)
+            } label: {
+                Image(systemName: "mappin.circle")
+            }
+
+            
+        }
+        
+        .onAppear{
             
             DoctorManager.shared.getDoctorsForClinic(clinicID: clinic.id!) { result in
                 if let result = result {
@@ -73,7 +88,7 @@ struct DoctorListView: View {
                     doctors = result
                     
                 }
-                    
+                
             }
         }
     }

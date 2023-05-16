@@ -242,8 +242,6 @@ struct RegiesterView: View {
 
                         }
                     }
-
-
                 }label:{
                     Text("Create new Account")
                         .foregroundColor(.black)
@@ -257,8 +255,6 @@ struct RegiesterView: View {
                         )
                         .padding(.horizontal)
                 }
-                
-                
             }
         }
     }
