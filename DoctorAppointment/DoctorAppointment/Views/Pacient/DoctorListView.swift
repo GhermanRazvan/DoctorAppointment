@@ -64,11 +64,8 @@ struct DoctorListView: View {
                         Text("\(doctor.profession)")
                         
                     }
-                    
                 }
-                
             }
-            
         }
         .toolbar {
             NavigationLink {

@@ -20,12 +20,12 @@ struct DoctorView: View {
                         ProgressView()
                     case .success(let image):
                         image
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .scaledToFit()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.gray, lineWidth: 2))
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .scaledToFit()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 2))
                     case .failure( _):
                         Image(systemName: "Photo")
                     @unknown default:
@@ -49,9 +49,7 @@ struct DoctorView: View {
                     Text("\(doctor.middleName!)")
                     
                 }
-                
                 Text("\(doctor.lastName)")
-                
                 
             }
             Text("\(doctor.phoneNumber)")
@@ -74,22 +72,26 @@ struct DoctorView: View {
                 showingSheet.toggle()
             }
             .sheet(isPresented: $showingSheet){
+                
                 AddReviewView(doctorID: doctor.id!)
+            }
+            NavigationLink{
+                CalendarView(doctor: doctor)
+            }
+            label: {
+                Text("Make appointment")
+            }
+                
+            Spacer()
         }
-         Spacer()
-    }
-        
         .onAppear{
             
             ReviewManager.shared.getReviewsForDoctors(doctorID: doctor.id! ){ result in
                 
                 if let result = result {
                     reviews = result
-                   
                 }
-                
             }
-            
         }
     }
     
@@ -97,7 +99,7 @@ struct DoctorView: View {
         var sum: Double = 0
         for review in reviews {
             sum += Double(review.reviewScore)
- 
+            
         }
         let doubleStr = String(format: "%.2f", sum/Double(reviews.count))
         return doubleStr

@@ -45,8 +45,6 @@ class DoctorManager {
             
         }
         
-        
-        
     }
     
     func getDoctorForEmail(email: String, completion: @escaping (Doctor?) -> () ){
