@@ -1,13 +1,13 @@
 //
-//  PacientAppointmentPage.swift
+//  DoctorAppointmentView.swift
 //  DoctorAppointment
 //
-//  Created by Razvan Gherman on 02.05.2023.
+//  Created by Razvan Gherman on 23.05.2023.
 //
 
 import SwiftUI
 
-struct PacientAppointmentView: View {
+struct DoctorAppointmentView: View {
     @AppStorage("email") var userEmail: String = ""
     @State var appointments: [Appointment] = []
     var body: some View {
@@ -18,11 +18,8 @@ struct PacientAppointmentView: View {
                         
                         if appointment.appointmentDate >= Date(){
                             VStack{
-                                if appointment.doctorName != nil{
-                                    Text("\(appointment.doctorName!)")
-                                }
-                                if appointment.doctorNumber != nil{
-                                    Text("\(appointment.doctorNumber!)")
+                                if appointment.pacientName != nil{
+                                    Text("\(appointment.pacientName!)")
                                 }
                                 
                                 Text("\(appointment.appointmentDate)")
@@ -41,13 +38,9 @@ struct PacientAppointmentView: View {
                         
                         if appointment.appointmentDate < Date(){
                             VStack{
-                                if appointment.doctorName != nil{
-                                    Text("\(appointment.doctorName!)")
+                                if appointment.pacientName != nil{
+                                    Text("\(appointment.pacientName!)")
                                 }
-                                if appointment.doctorNumber != nil{
-                                    Text("\(appointment.doctorNumber!)")
-                                }
-                                
                                 Text("\(appointment.appointmentDate)")
                                 
                             }
@@ -67,7 +60,7 @@ struct PacientAppointmentView: View {
             let queue = DispatchQueue(label: "Appointment queue")
             group.enter()
             queue.async {
-                AppointmentManager.shared.getAppointmentsForPacient(email: userEmail) { rez in
+                AppointmentManager.shared.getAppointmentsForDoctor(email: userEmail) { rez in
                     if let rez = rez {
                         appointments = rez
                     }
@@ -78,11 +71,11 @@ struct PacientAppointmentView: View {
                 group.wait()
                 for i in appointments.indices {
                     group.enter()
-                    DoctorManager.shared.getDoctorForEmail(email: appointments[i].doctorID) { rez in
+                    PacientManager.shared.getPacientForEmail(email: appointments[i].pacientID) { rez in
                         if let rez = rez {
                             let name = "\(rez.firstName) \(rez.middleName ?? "") \(rez.lastName)"
-                            appointments[i].doctorName = name
-                            appointments[i].doctorNumber = rez.phoneNumber
+                            appointments[i].pacientName = name
+                            
                         }
                         group.leave()
                     }
@@ -95,8 +88,8 @@ struct PacientAppointmentView: View {
     }
 }
 
-struct PacientAppointmentView_Previews: PreviewProvider {
+struct DoctorAppointmentView_Previews: PreviewProvider {
     static var previews: some View {
-        PacientAppointmentView()
+        DoctorAppointmentView()
     }
 }

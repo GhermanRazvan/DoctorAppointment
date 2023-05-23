@@ -53,5 +53,63 @@ class AppointmentManager{
         }
         
     }
+    
+    func getAppointmentsForPacient(email: String, completion: @escaping ([Appointment]?) -> ()){
+        var appointments: [Appointment] = []
+        db.collection("Appointment").whereField("pacient_id", isEqualTo: email).getDocuments { snapshot, err in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(nil)
+            }
+            else {
+                for document in snapshot!.documents{
+                    
+                    let result = Result{
+                        try document.data(as: Appointment.self)
+                        
+                    }
+                    switch result{
+                    case .success(let item):
+                        appointments.append(item)
+                    case .failure(let err):
+                        print("Error parsing appointment \(err.localizedDescription)")
+                    }
+                    
+                }
+                completion(appointments)
+                
+            }
+            
+        }
+    }
+    
+    func getAppointmentsForDoctor(email: String, completion: @escaping ([Appointment]?) -> ()){
+        var appointments: [Appointment] = []
+        db.collection("Appointment").whereField("doctor_id", isEqualTo: email).getDocuments { snapshot, err in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(nil)
+            }
+            else {
+                for document in snapshot!.documents{
+                    
+                    let result = Result{
+                        try document.data(as: Appointment.self)
+                        
+                    }
+                    switch result{
+                    case .success(let item):
+                        appointments.append(item)
+                    case .failure(let err):
+                        print("Error parsing appointment \(err.localizedDescription)")
+                    }
+                    
+                }
+                completion(appointments)
+                
+            }
+            
+        }
+    }
    
 }

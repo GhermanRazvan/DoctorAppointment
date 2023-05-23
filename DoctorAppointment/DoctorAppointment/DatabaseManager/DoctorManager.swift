@@ -64,7 +64,7 @@ class DoctorManager {
     
     func getDoctorsForClinic(clinicID: String, completion: @escaping ([Doctor]?) -> ()){
         var doctors: [Doctor] = []
-        db.collection("Doctor").whereField("clinic_id", isEqualTo: clinicID).getDocuments { snapshot, err in
+        db.collection("Doctor").whereField("clinic_id", isEqualTo: clinicID).whereField("is_enabled", isEqualTo: true).getDocuments { snapshot, err in
             if let err = err {
                 print("Error getting documents: \(err)")
                 completion(nil)
@@ -144,7 +144,8 @@ class DoctorManager {
             "phone_number": phoneNumber,
             "profession": profession,
             "about": about,
-            "is_active": true
+            "is_active": true,
+            "is_enabled": true
             
         ]){ err in
             if let err = err {
@@ -196,6 +197,26 @@ class DoctorManager {
         }
     }
     
+    
+    func changeAccountStatus(email: String, state: Bool){
+        
+        db.collection("Doctor").document(email).updateData([
+            "is_enabled": state
+            
+
+            
+        ]){ err in
+            if let err = err {
+                print("Error updating document: \(err)")
+                
+            } else
+            {
+                print("Document successfully updated")
+                
+            }
+        }
+        
+    }
     
     
 }

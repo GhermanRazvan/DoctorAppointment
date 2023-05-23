@@ -13,6 +13,7 @@ struct CalendarView: View {
     @State private var appointments: [Appointment] = []
     @State private var hours: [String] = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
     @State private var avaliableHours: [String] = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
+    @State var startingDate: Date = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     func selectDate(date:Date, from appointments: [Appointment]) -> [String]{
         var result: [Appointment] = []
         var hoursCopy = hours
@@ -23,11 +24,13 @@ struct CalendarView: View {
         let selectedDay = dateFormatter.string(from: date)
         
         for appointment in appointments {
-            
-            let day = dateFormatter.string(from: appointment.appointmentDate)
-            if selectedDay == day {
-                result.append(appointment)
+            if appointment.doctorID == doctor.email{
+                let day = dateFormatter.string(from: appointment.appointmentDate)
+                if selectedDay == day {
+                    result.append(appointment)
+                }
             }
+            
             
         }
         
@@ -53,7 +56,8 @@ struct CalendarView: View {
     
     var body: some View {
         VStack{
-            DatePicker("Pick a date", selection: $date, in: Date()... ,displayedComponents: [.date])
+            
+            DatePicker("Pick a date", selection: $date, in: startingDate... ,displayedComponents: [.date])
                 .datePickerStyle(.graphical)
                 .onChange(of: date) { newValue in
                     avaliableHours = selectDate(date: newValue, from: appointments)
@@ -89,6 +93,6 @@ struct CalendarView: View {
 
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView(doctor: Doctor(firstName: "", middleName: "", lastName: "", phoneNumber: "", email: "", profession: "", about: "", clinicId: "", isActive: false, profilePicture: ""))
+        CalendarView(doctor: Doctor(firstName: "", middleName: "", lastName: "", phoneNumber: "", email: "", profession: "", about: "", clinicId: "", isActive: false, profilePicture: "", isEnabled: true))
     }
 }

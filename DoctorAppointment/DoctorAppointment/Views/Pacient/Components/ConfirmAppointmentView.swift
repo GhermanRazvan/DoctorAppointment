@@ -41,6 +41,6 @@ struct ConfirmAppointmentView: View {
 
 struct ConfirmAppointmentView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmAppointmentView(doctor: Doctor(firstName: "", middleName: "", lastName: "", phoneNumber: "", email: "", profession: "", about: "", clinicId: "", isActive: false, profilePicture: ""), date: Date(), hour: "")
+        ConfirmAppointmentView(doctor: Doctor(firstName: "", middleName: "", lastName: "", phoneNumber: "", email: "", profession: "", about: "", clinicId: "", isActive: false, profilePicture: "", isEnabled: true), date: Date(), hour: "")
     }
 }

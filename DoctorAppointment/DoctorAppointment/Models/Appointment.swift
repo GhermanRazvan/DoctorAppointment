@@ -10,11 +10,14 @@ import CoreLocation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-public struct Appointment: Codable {
+public struct Appointment: Codable, Identifiable {
     @DocumentID public var id: String? = UUID().uuidString
     let doctorID: String
     let pacientID: String
     let appointmentDate: Date
+    var doctorName: String?
+    var doctorNumber: String?
+    var pacientName: String?
     
  
     

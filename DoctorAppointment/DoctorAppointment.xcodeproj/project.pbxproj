@@ -61,6 +61,7 @@
 		E5DB9B2D2A18D6380020790F /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB9B2C2A18D6380020790F /* Appointment.swift */; };
 		E5DB9B2F2A18D7AD0020790F /* AppointmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB9B2E2A18D7AD0020790F /* AppointmentManager.swift */; };
 		E5DB9B312A18F1390020790F /* ConfirmAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB9B302A18F1390020790F /* ConfirmAppointmentView.swift */; };
+		E5DB9B332A1CF3C60020790F /* DoctorAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB9B322A1CF3C60020790F /* DoctorAppointmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		E5DB9B2C2A18D6380020790F /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		E5DB9B2E2A18D7AD0020790F /* AppointmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentManager.swift; sourceTree = "<group>"; };
 		E5DB9B302A18F1390020790F /* ConfirmAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAppointmentView.swift; sourceTree = "<group>"; };
+		E5DB9B322A1CF3C60020790F /* DoctorAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorAppointmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 				E590C8F329E03C0500CC9762 /* DoctorHomeView.swift */,
 				E590C92B2A0D12A700CC9762 /* DoctorActivationView.swift */,
 				E590C92D2A10F71D00CC9762 /* DoctorSettingView.swift */,
+				E5DB9B322A1CF3C60020790F /* DoctorAppointmentView.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				E590C8F029E033BF00CC9762 /* PacientHomeView.swift in Sources */,
 				E5DB9B252A1398F90020790F /* RegiesterView.swift in Sources */,
 				E590C8FC2A012B5100CC9762 /* ClinicManager.swift in Sources */,
+				E5DB9B332A1CF3C60020790F /* DoctorAppointmentView.swift in Sources */,
 				E590C90B2A02A69E00CC9762 /* DoctorListView.swift in Sources */,
 				E590C8F82A01103200CC9762 /* Admin.swift in Sources */,
 				E590C8BB29DB179E00CC9762 /* DoctorAppointmentApp.swift in Sources */,

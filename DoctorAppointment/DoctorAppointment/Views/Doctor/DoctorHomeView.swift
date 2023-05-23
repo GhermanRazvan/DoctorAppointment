@@ -12,28 +12,36 @@ struct DoctorHomeView: View {
     @State var isActive: Bool = false
     var body: some View {
         
-
-            TabView{
-                
-                    DoctorSettingView()
-                        .tabItem{
-                            Image(systemName: "person")
-                            Text("User")
-                        }
+        
+        TabView{
+            DoctorAppointmentView()
+                .tabItem{
+                    Image(systemName: "calendar.badge.clock")
+                    Text("Appointments")
                 }
-            .fullScreenCover(isPresented: $isActive, content: DoctorActivationView.init)
-                
-                
-
+            DoctorSettingView()
+                .tabItem{
+                    Image(systemName: "person")
+                    Text("User")
+                }
+        }
+        .fullScreenCover(isPresented: $isActive, content: DoctorActivationView.init)
+        
+        
+        
         
         .onAppear{
+            
             DoctorManager.shared.verifyDoctorAcccount(email: userEmail) { rez in
                 if let rez = rez {
                     isActive = !rez
                 }
             }
+            
         }
+        
     }
+    
 }
 
 struct DoctorHomeView_Previews: PreviewProvider {

@@ -75,6 +75,6 @@ struct AdminDoctorView: View {
 
 struct AdminDoctorView_Previews: PreviewProvider {
     static var previews: some View {
-        AdminDoctorView(doctor: Doctor(firstName: "", middleName: "", lastName: "", phoneNumber: "", email: "", profession: "", about: "", clinicId: "", isActive: false, profilePicture: ""))
+        AdminDoctorView(doctor: Doctor(firstName: "", middleName: "", lastName: "", phoneNumber: "", email: "", profession: "", about: "", clinicId: "", isActive: false, profilePicture: "", isEnabled: true))
     }
 }

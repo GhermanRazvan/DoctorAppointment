@@ -28,6 +28,21 @@ class PacientManager{
         
     }
     
+    func getPacientForEmail(email: String, completion: @escaping (Pacient?) -> () ){
+        
+        db.collection("Pacient").document(email).getDocument(as: Pacient.self) { result in
+            switch result {
+            case .success(let success):
+                completion(success)
+            case .failure(let failure):
+                completion(nil)
+                print("Error getting pacient \(failure)")
+            }
+            
+        }
+        
+    }
+    
 }
 
 

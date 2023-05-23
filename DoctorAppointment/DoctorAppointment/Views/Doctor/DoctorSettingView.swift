@@ -11,9 +11,18 @@ import FirebaseAuth
 struct DoctorSettingView: View {
     @Environment (\.dismiss) var dismiss
     @AppStorage("email") var userEmail: String = ""
+    @State var isEnabled: Bool = true
     var body: some View {
         NavigationView{
             List{
+                Section{
+                    Toggle("Enable account", isOn: $isEnabled)
+                        .onChange(of: isEnabled) { newValue in
+                            DoctorManager.shared.changeAccountStatus(email: userEmail, state: newValue)
+                        }
+                }header: {
+                    Text("Enable account")
+                }
                 Section{
                     NavigationLink("Personal information"){
         
@@ -48,7 +57,15 @@ struct DoctorSettingView: View {
                     Text("Sign out User")
                 }
                 
-            }.navigationTitle("Settings")
+            }
+            .navigationTitle("Settings")
+            .onAppear{
+                DoctorManager.shared.getDoctorForEmail(email: userEmail) { rez in
+                    if let rez = rez{
+                        isEnabled = rez.isEnabled
+                    }
+                }
+            }
         }
         
         
