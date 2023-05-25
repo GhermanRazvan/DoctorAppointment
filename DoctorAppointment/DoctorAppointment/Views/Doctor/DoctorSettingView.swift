@@ -18,7 +18,7 @@ struct DoctorSettingView: View {
                 Section{
                     Toggle("Enable account", isOn: $isEnabled)
                         .onChange(of: isEnabled) { newValue in
-                            DoctorManager.shared.changeAccountStatus(email: userEmail, state: newValue)
+                            DoctorManager.shared.changeAccountStatus(email: userEmail, state: newValue  )
                         }
                 }header: {
                     Text("Enable account")

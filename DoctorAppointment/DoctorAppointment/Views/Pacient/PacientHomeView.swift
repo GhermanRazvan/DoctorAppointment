@@ -24,6 +24,11 @@ struct PacientHomeView: View {
                     Image(systemName: "calendar.badge.clock")
                     Text("Appointments")
                 }
+            ChatView()
+                .tabItem{
+                    Image(systemName: "message")
+                    Text("Chat")
+                }
             PacientSettingsView()
                 .tabItem{
                     Image(systemName: "person")

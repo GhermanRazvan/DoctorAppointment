@@ -19,6 +19,11 @@ struct DoctorHomeView: View {
                     Image(systemName: "calendar.badge.clock")
                     Text("Appointments")
                 }
+            DoctorChatView()
+                .tabItem{
+                    Image(systemName: "message")
+                    Text("Chat")
+                }
             DoctorSettingView()
                 .tabItem{
                     Image(systemName: "person")

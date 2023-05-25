@@ -68,20 +68,29 @@ struct DoctorView: View {
                 }
             }
             
-            Button("Add a review") {
-                showingSheet.toggle()
-            }
-            .sheet(isPresented: $showingSheet){
+            Group{
                 
-                AddReviewView(doctorID: doctor.id!)
-            }
-            NavigationLink{
-                CalendarView(doctor: doctor)
-            }
-            label: {
-                Text("Make appointment")
-            }
+                Button("Add a review") {
+                    showingSheet.toggle()
+                }
+                .sheet(isPresented: $showingSheet){
+                    
+                    AddReviewView(doctorID: doctor.id!)
+                }
+                NavigationLink{
+                    CalendarView(doctor: doctor)
+                }label: {
+                    Text("Make appointment")
+                    
+                }
                 
+                NavigationLink {
+                    SendMessageView(doctorID: doctor.email)
+                } label: {
+                    Text("Send message")
+                }
+            }
+            
             Spacer()
         }
         .onAppear{
